@@ -220,10 +220,10 @@
         text-align: center;
       }
 
-      .rival-card img {
+      .rival-avatar {
         width: min(100%, 230px);
         aspect-ratio: 1 / 1;
-        object-fit: contain;
+        display: block;
         filter: drop-shadow(0 10px 16px rgba(28, 176, 246, 0.3));
       }
 
@@ -328,7 +328,41 @@
           </section>
 
           <aside class="rival-card">
-            <img src="./assets/e-rival-icon.png" alt="E-Rival mascot" />
+            <svg class="rival-avatar" viewBox="0 0 220 220" role="img" aria-label="Base E-Rival avatar">
+              <ellipse cx="110" cy="198" rx="66" ry="13" fill="#0A1216" opacity="0.5"></ellipse>
+              <circle cx="110" cy="20" r="12" fill="#66E2FF" opacity="0.6"></circle>
+              <circle cx="110" cy="20" r="6" fill="#66E2FF"></circle>
+              <path d="M104 24 L106 48 Q110 52 114 48 L116 24 Z" fill="#1B2B32"></path>
+
+              <rect x="36" y="62" width="148" height="110" rx="58" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="5"></rect>
+              <rect x="56" y="82" width="108" height="62" rx="29" fill="#1B2B32"></rect>
+              <rect x="62" y="87" width="96" height="52" rx="24" fill="#0A1216"></rect>
+
+              <ellipse cx="94" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24"></ellipse>
+              <ellipse cx="126" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24"></ellipse>
+              <ellipse cx="94" cy="113" rx="11" ry="16" fill="#FF313A"></ellipse>
+              <ellipse cx="126" cy="113" rx="11" ry="16" fill="#FF313A"></ellipse>
+              <ellipse cx="90" cy="107" rx="5" ry="6" fill="#FFD1D4"></ellipse>
+              <ellipse cx="122" cy="107" rx="5" ry="6" fill="#FFD1D4"></ellipse>
+
+              <rect x="22" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <rect x="177" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+
+              <rect x="62" y="155" width="96" height="36" rx="16" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <rect x="84" y="163" width="52" height="21" rx="7" fill="#131F24"></rect>
+              <circle cx="98" cy="173" r="5" fill="#66E2FF"></circle>
+              <rect x="107" y="168" width="16" height="10" rx="3" fill="#A7F0FF"></rect>
+
+              <rect x="53" y="171" width="18" height="38" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <rect x="149" y="171" width="18" height="38" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <circle cx="61" cy="208" r="9" fill="#1B2B32"></circle>
+              <circle cx="158" cy="208" r="9" fill="#1B2B32"></circle>
+
+              <rect x="74" y="191" width="28" height="24" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <rect x="119" y="191" width="28" height="24" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+              <rect x="70" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
+              <rect x="115" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
+            </svg>
             <p class="rival-name">E-Rival</p>
             <p class="rival-note">Your cognitive safety rival is warming up.</p>
           </aside>
