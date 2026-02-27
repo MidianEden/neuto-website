@@ -374,38 +374,6 @@
         color: var(--ink-soft);
       }
 
-      .shots-grid {
-        margin-top: 16px;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-      }
-
-      .shot-card {
-        margin: 0;
-      }
-
-      .phone-frame {
-        border-radius: 18px;
-        border: 2px solid var(--border);
-        border-bottom-width: 4px;
-        border-bottom-color: var(--border-bottom);
-        overflow: hidden;
-        background: #061522;
-      }
-
-      .phone-frame img {
-        width: 100%;
-        display: block;
-      }
-
-      .shot-card figcaption {
-        margin-top: 7px;
-        font-size: 12px;
-        font-weight: 800;
-        color: var(--ink-soft);
-      }
-
       .how-grid {
         margin-top: 16px;
         display: grid;
@@ -523,7 +491,6 @@
           gap: 16px;
         }
 
-        .shots-grid,
         .how-grid,
         .benefits-grid {
           grid-template-columns: 1fr;
@@ -635,31 +602,6 @@
             <p class="rival-note">Your cognitive safety rival is warming up.</p>
           </aside>
         </main>
-
-        <section class="section-card card">
-          <h2 class="section-title">Real Screens From the Current Build</h2>
-          <p class="section-sub">Captured directly from the app while running in simulator.</p>
-          <div class="shots-grid">
-            <figure class="shot-card">
-              <div class="phone-frame">
-                <img src="./assets/screens/app-home.png" alt="Neuto home screen screenshot" />
-              </div>
-              <figcaption>Home and battle entry</figcaption>
-            </figure>
-            <figure class="shot-card">
-              <div class="phone-frame">
-                <img src="./assets/screens/app-training.png" alt="Neuto training card screenshot" />
-              </div>
-              <figcaption>Mini-game challenge cards</figcaption>
-            </figure>
-            <figure class="shot-card">
-              <div class="phone-frame">
-                <img src="./assets/screens/app-rival.png" alt="Neuto neural map and rival section screenshot" />
-              </div>
-              <figcaption>Neural map and rival loop</figcaption>
-            </figure>
-          </div>
-        </section>
 
         <section class="section-card card">
           <h2 class="section-title">How It Works</h2>
