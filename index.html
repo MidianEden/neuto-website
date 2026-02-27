@@ -38,106 +38,133 @@
         overflow: hidden;
       }
 
+      .bg-layer {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
       .shell {
         width: min(980px, 100%);
         position: relative;
+        z-index: 1;
       }
 
       .bg-dot {
         position: absolute;
         border-radius: 999px;
-        opacity: 0.24;
-        z-index: 0;
+        opacity: 0.34;
+        filter: blur(0.6px);
         animation: drift 7.5s ease-in-out infinite;
       }
 
       .bg-dot.d1 {
-        width: 42px;
-        height: 42px;
-        background: rgba(28, 176, 246, 0.34);
-        top: 7%;
-        left: 4%;
+        width: 52px;
+        height: 52px;
+        background: rgba(28, 176, 246, 0.45);
+        top: 6%;
+        left: 5%;
       }
 
       .bg-dot.d2 {
-        width: 64px;
-        height: 64px;
-        background: rgba(88, 204, 2, 0.3);
-        top: 15%;
-        left: 22%;
+        width: 86px;
+        height: 86px;
+        background: rgba(88, 204, 2, 0.38);
+        top: 14%;
+        left: 20%;
         animation-delay: 0.5s;
       }
 
       .bg-dot.d3 {
-        width: 95px;
-        height: 95px;
-        background: rgba(255, 150, 0, 0.24);
-        top: 5%;
-        right: 12%;
+        width: 132px;
+        height: 132px;
+        background: rgba(255, 150, 0, 0.3);
+        top: 4%;
+        right: 10%;
         animation-delay: 0.9s;
       }
 
       .bg-dot.d4 {
-        width: 56px;
-        height: 56px;
-        background: rgba(28, 176, 246, 0.26);
-        top: 33%;
+        width: 72px;
+        height: 72px;
+        background: rgba(28, 176, 246, 0.33);
+        top: 30%;
         right: 4%;
         animation-delay: 1.4s;
       }
 
       .bg-dot.d5 {
-        width: 78px;
-        height: 78px;
-        background: rgba(88, 204, 2, 0.22);
-        bottom: 30%;
-        left: 8%;
+        width: 168px;
+        height: 168px;
+        background: rgba(88, 204, 2, 0.2);
+        bottom: 26%;
+        left: 2%;
         animation-delay: 0.2s;
       }
 
       .bg-dot.d6 {
-        width: 30px;
-        height: 30px;
-        background: rgba(255, 150, 0, 0.35);
-        bottom: 22%;
-        left: 34%;
+        width: 38px;
+        height: 38px;
+        background: rgba(255, 150, 0, 0.44);
+        bottom: 20%;
+        left: 35%;
         animation-delay: 1.1s;
       }
 
       .bg-dot.d7 {
-        width: 118px;
-        height: 118px;
-        background: rgba(28, 176, 246, 0.19);
-        bottom: 8%;
-        right: 14%;
+        width: 210px;
+        height: 210px;
+        background: rgba(28, 176, 246, 0.16);
+        bottom: -5%;
+        right: 9%;
         animation-delay: 1.8s;
       }
 
       .bg-dot.d8 {
-        width: 52px;
-        height: 52px;
-        background: rgba(88, 204, 2, 0.26);
-        bottom: 6%;
+        width: 58px;
+        height: 58px;
+        background: rgba(88, 204, 2, 0.34);
+        bottom: 7%;
         left: 52%;
         animation-delay: 0.6s;
       }
 
       .bg-dot.d9 {
-        width: 70px;
-        height: 70px;
-        background: rgba(255, 150, 0, 0.2);
-        top: 49%;
-        left: 14%;
+        width: 94px;
+        height: 94px;
+        background: rgba(255, 150, 0, 0.22);
+        top: 48%;
+        left: 13%;
         animation-delay: 1.5s;
       }
 
       .bg-dot.d10 {
-        width: 38px;
-        height: 38px;
-        background: rgba(28, 176, 246, 0.29);
+        width: 48px;
+        height: 48px;
+        background: rgba(28, 176, 246, 0.4);
         top: 68%;
-        right: 34%;
+        right: 32%;
         animation-delay: 0.3s;
+      }
+
+      .bg-dot.d11 {
+        width: 124px;
+        height: 124px;
+        background: rgba(88, 204, 2, 0.2);
+        top: 64%;
+        right: -1%;
+        animation-delay: 1.2s;
+      }
+
+      .bg-dot.d12 {
+        width: 76px;
+        height: 76px;
+        background: rgba(255, 150, 0, 0.26);
+        top: 23%;
+        left: 41%;
+        animation-delay: 0.7s;
       }
 
       .content {
@@ -321,10 +348,10 @@
       @keyframes drift {
         0%,
         100% {
-          transform: translateY(0) scale(1);
+          transform: translate(0, 0) scale(1);
         }
         50% {
-          transform: translateY(-10px) scale(1.06);
+          transform: translate(6px, -11px) scale(1.07);
         }
       }
 
@@ -357,7 +384,7 @@
     </style>
   </head>
   <body>
-    <div class="shell">
+    <div class="bg-layer">
       <div class="bg-dot d1"></div>
       <div class="bg-dot d2"></div>
       <div class="bg-dot d3"></div>
@@ -368,6 +395,10 @@
       <div class="bg-dot d8"></div>
       <div class="bg-dot d9"></div>
       <div class="bg-dot d10"></div>
+      <div class="bg-dot d11"></div>
+      <div class="bg-dot d12"></div>
+    </div>
+    <div class="shell">
       <div class="content">
         <div class="top">
           <div class="brand">NEUTO</div>
