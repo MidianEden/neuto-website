@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neuto | Launching Soon</title>
+    <style>
+      :root {
+        --bg: #132632;
+        --bg-card: #e9f2fa;
+        --bg-elevated: #f4faff;
+        --ink: #0b2f57;
+        --ink-soft: #315679;
+        --border: #bfd1df;
+        --border-bottom: #8ca8bc;
+        --green: #58cc02;
+        --green-dark: #46a302;
+        --blue: #1cb0f6;
+        --blue-dark: #1899d6;
+        --orange: #ff9600;
+        --orange-dark: #e08600;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 24px;
+        font-family: "Avenir Next", "Segoe UI", "Trebuchet MS", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 8%, rgba(28, 176, 246, 0.22), transparent 34%),
+          radial-gradient(circle at 88% 14%, rgba(88, 204, 2, 0.2), transparent 30%),
+          radial-gradient(circle at 24% 90%, rgba(255, 150, 0, 0.15), transparent 28%),
+          var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow-x: hidden;
+      }
+
+      .shell {
+        width: min(980px, 100%);
+        position: relative;
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 999px;
+        opacity: 0.75;
+        z-index: 0;
+        animation: bob 5s ease-in-out infinite;
+      }
+
+      .orb.a {
+        width: 82px;
+        height: 82px;
+        background: rgba(28, 176, 246, 0.3);
+        top: -18px;
+        left: -10px;
+      }
+
+      .orb.b {
+        width: 62px;
+        height: 62px;
+        background: rgba(88, 204, 2, 0.35);
+        top: 18%;
+        right: -10px;
+        animation-delay: 0.8s;
+      }
+
+      .orb.c {
+        width: 66px;
+        height: 66px;
+        background: rgba(255, 150, 0, 0.3);
+        bottom: -12px;
+        left: 18%;
+        animation-delay: 0.4s;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .brand {
+        color: #dff1ff;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        font-size: 18px;
+      }
+
+      .status-chip {
+        border: 2px solid var(--border);
+        border-bottom-width: 4px;
+        border-bottom-color: var(--border-bottom);
+        border-radius: 999px;
+        background: var(--bg-card);
+        color: var(--ink);
+        font-weight: 900;
+        font-size: 12px;
+        padding: 8px 14px;
+      }
+
+      .card {
+        background: var(--bg-card);
+        border: 2px solid var(--border);
+        border-bottom-width: 5px;
+        border-bottom-color: var(--border-bottom);
+        border-radius: 24px;
+      }
+
+      .hero {
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 24px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        font-weight: 900;
+        color: #2274ab;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(30px, 5vw, 48px);
+        line-height: 1.03;
+      }
+
+      .sub {
+        margin: 14px 0 0;
+        font-size: 18px;
+        line-height: 1.45;
+        color: var(--ink-soft);
+        max-width: 54ch;
+      }
+
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 22px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-weight: 900;
+        font-size: 13px;
+        letter-spacing: 0.03em;
+        border-radius: 14px;
+        padding: 13px 18px;
+        border: 2px solid transparent;
+        border-bottom-width: 4px;
+        transition: transform 0.14s ease;
+      }
+
+      .btn:focus-visible,
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        background: var(--green);
+        border-color: var(--green-dark);
+        border-bottom-color: #2f7f01;
+        color: #ffffff;
+      }
+
+      .btn.secondary {
+        background: var(--blue);
+        border-color: var(--blue-dark);
+        border-bottom-color: #116f9b;
+        color: #ffffff;
+      }
+
+      .tags {
+        margin-top: 18px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 7px 12px;
+        font-weight: 800;
+        font-size: 12px;
+        color: var(--ink-soft);
+      }
+
+      .rival-card {
+        background: var(--bg-elevated);
+        border: 2px solid var(--border);
+        border-bottom-width: 4px;
+        border-bottom-color: var(--border-bottom);
+        border-radius: 20px;
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .rival-card img {
+        width: min(100%, 230px);
+        aspect-ratio: 1 / 1;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 16px rgba(28, 176, 246, 0.3));
+      }
+
+      .rival-name {
+        margin: 10px 0 2px;
+        font-size: 29px;
+        font-weight: 900;
+      }
+
+      .rival-note {
+        margin: 0;
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+
+      .foot {
+        margin-top: 14px;
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        background: rgba(244, 250, 255, 0.9);
+      }
+
+      .foot strong {
+        font-size: 14px;
+      }
+
+      .foot span {
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @media (max-width: 850px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 18px;
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        body {
+          padding: 14px;
+        }
+
+        .top {
+          margin-bottom: 10px;
+        }
+
+        .status-chip {
+          font-size: 11px;
+          padding: 7px 11px;
+        }
+
+        .sub {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="orb a"></div>
+      <div class="orb b"></div>
+      <div class="orb c"></div>
+      <div class="content">
+        <div class="top">
+          <div class="brand">NEUTO</div>
+          <div class="status-chip">EARLY ACCESS SOON</div>
+        </div>
+
+        <main class="hero card">
+          <section>
+            <p class="eyebrow">LAUNCHING SOON</p>
+            <h1>Train your brain.<br />Battle E-Rival.</h1>
+            <p class="sub">
+              Neuto is almost ready. Daily cognitive training, adaptive challenge loops, and your own rival coach are
+              coming online.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="mailto:hello@neuto.app?subject=Neuto%20Early%20Access">JOIN WAITLIST</a>
+              <a class="btn secondary" href="https://github.com/MidianEden/neuto-website">VIEW PROJECT</a>
+            </div>
+            <div class="tags">
+              <span class="tag">Daily Sets</span>
+              <span class="tag">Adaptive Difficulty</span>
+              <span class="tag">Brain Systems Tracking</span>
+            </div>
+          </section>
+
+          <aside class="rival-card">
+            <img src="./assets/e-rival-icon.png" alt="E-Rival mascot" />
+            <p class="rival-name">E-Rival</p>
+            <p class="rival-note">Your rival is warming up for launch.</p>
+          </aside>
+        </main>
+
+        <div class="foot card">
+          <strong>Launch signal: green soon</strong>
+          <span>Neuto + E-Rival are in final tuning.</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
