@@ -65,96 +65,129 @@
     .bg-dot {
       position: absolute;
       border-radius: 999px;
-      filter: blur(80px);
-      opacity: 0.15;
-      animation: drift 15s ease-in-out infinite;
+      opacity: 0.18;
+      filter: blur(15px);
+      animation: drift 12s ease-in-out infinite;
+      box-shadow: 0 0 40px currentColor;
     }
 
     .bg-dot.d1 {
-      width: 40vw;
-      height: 40vw;
-      background: radial-gradient(circle, var(--blue), transparent);
-      top: -10%;
-      left: -10%;
+      width: 52px;
+      height: 52px;
+      color: var(--blue);
+      background: var(--blue);
+      top: 6%;
+      left: 5%;
     }
 
     .bg-dot.d2 {
-      width: 35vw;
-      height: 35vw;
-      background: radial-gradient(circle, var(--green), transparent);
-      bottom: -5%;
-      right: -5%;
+      width: 86px;
+      height: 86px;
+      color: var(--green);
+      background: var(--green);
+      top: 14%;
+      left: 20%;
       animation-delay: -2s;
     }
 
     .bg-dot.d3 {
-      width: 25vw;
-      height: 25vw;
-      background: radial-gradient(circle, var(--orange), transparent);
-      top: 30%;
-      right: 15%;
-      animation-delay: -5s;
+      width: 132px;
+      height: 132px;
+      color: var(--orange);
+      background: var(--orange);
+      top: 4%;
+      right: 10%;
+      animation-delay: -4s;
     }
 
     .bg-dot.d4 {
-      width: 20vw;
-      height: 20vw;
-      background: radial-gradient(circle, var(--blue), transparent);
-      bottom: 20%;
-      left: 10%;
-      animation-delay: -8s;
-    }
-
-    .bg-circle {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      opacity: 0.4;
-      filter: blur(1px);
-      animation: drift 8s ease-in-out infinite;
-    }
-
-    .bg-circle.c1 {
+      width: 72px;
+      height: 72px;
+      color: var(--blue);
       background: var(--blue);
-      top: 15%;
-      left: 25%;
+      top: 30%;
+      right: 4%;
       animation-delay: -1s;
     }
 
-    .bg-circle.c2 {
+    .bg-dot.d5 {
+      width: 168px;
+      height: 168px;
+      color: var(--green);
       background: var(--green);
-      top: 60%;
-      left: 15%;
+      bottom: 26%;
+      left: 2%;
       animation-delay: -3s;
     }
 
-    .bg-circle.c3 {
+    .bg-dot.d6 {
+      width: 38px;
+      height: 38px;
+      color: var(--orange);
       background: var(--orange);
-      top: 40%;
-      right: 20%;
+      bottom: 20%;
+      left: 35%;
       animation-delay: -5s;
     }
 
-    .bg-circle.c4 {
+    .bg-dot.d7 {
+      width: 210px;
+      height: 210px;
+      color: var(--blue);
       background: var(--blue);
-      bottom: 15%;
-      right: 30%;
-      animation-delay: -2s;
+      bottom: -5%;
+      right: 9%;
+      animation-delay: -2.5s;
     }
 
-    .bg-circle.c5 {
+    .bg-dot.d8 {
+      width: 58px;
+      height: 58px;
+      color: var(--green);
       background: var(--green);
-      top: 10%;
-      right: 40%;
-      animation-delay: -7s;
+      bottom: 7%;
+      left: 52%;
+      animation-delay: -6s;
     }
 
-    .bg-circle.c6 {
+    .bg-dot.d9 {
+      width: 94px;
+      height: 94px;
+      color: var(--orange);
       background: var(--orange);
-      bottom: 30%;
-      left: 40%;
-      animation-delay: -4s;
+      top: 48%;
+      left: 13%;
+      animation-delay: -1.5s;
+    }
+
+    .bg-dot.d10 {
+      width: 48px;
+      height: 48px;
+      color: var(--blue);
+      background: var(--blue);
+      top: 68%;
+      right: 32%;
+      animation-delay: -4.5s;
+    }
+
+    .bg-dot.d11 {
+      width: 124px;
+      height: 124px;
+      color: var(--green);
+      background: var(--green);
+      top: 64%;
+      right: -1%;
+      animation-delay: -3.5s;
+    }
+
+    .bg-dot.d12 {
+      width: 76px;
+      height: 76px;
+      color: var(--orange);
+      background: var(--orange);
+      top: 23%;
+      left: 41%;
+      animation-delay: -0.5s;
     }
 
     .content {
@@ -557,12 +590,6 @@
     <div class="bg-dot d2"></div>
     <div class="bg-dot d3"></div>
     <div class="bg-dot d4"></div>
-    <div class="bg-circle c1"></div>
-    <div class="bg-circle c2"></div>
-    <div class="bg-circle c3"></div>
-    <div class="bg-circle c4"></div>
-    <div class="bg-circle c5"></div>
-    <div class="bg-circle c6"></div>
     <div class="bg-dot d5"></div>
     <div class="bg-dot d6"></div>
     <div class="bg-dot d7"></div>
