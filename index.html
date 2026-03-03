@@ -267,6 +267,85 @@
       margin-top: 22px;
     }
 
+    .waitlist-form {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .waitlist-input {
+      flex: 1;
+      min-width: 230px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--ink);
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: var(--font-main);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .waitlist-input::placeholder {
+      color: #8ca1b5;
+    }
+
+    .waitlist-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    .waitlist-button {
+      border: none;
+      border-radius: 14px;
+      background: var(--green);
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      font-size: 13px;
+      padding: 14px 18px;
+      cursor: pointer;
+      min-width: 150px;
+      box-shadow: 0 0 18px var(--green-glow);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .waitlist-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .waitlist-button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .waitlist-feedback {
+      margin: 8px 0 0;
+      min-height: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #b7d4e7;
+    }
+
+    .waitlist-feedback.success {
+      color: #7ce0ad;
+    }
+
+    .waitlist-feedback.error {
+      color: #ff9ca1;
+    }
+
+    .waitlist-note {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #88a0b4;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -615,7 +694,7 @@
             reliance. E-Rival keeps you sharp with short conditioning loops.
           </p>
           <div class="actions">
-            <a class="btn primary" href="mailto:hello@neuto.app?subject=Neuto%20Early%20Access">JOIN WAITLIST</a>
+            <a class="btn primary" href="#waitlist">JOIN WAITLIST</a>
             <a class="btn secondary" href="https://github.com/MidianEden/neuto-website">VIEW PROJECT</a>
           </div>
           <div class="tags">
@@ -666,6 +745,25 @@
           <p class="rival-note">Your cognitive safety rival is warming up.</p>
         </aside>
       </main>
+
+      <section id="waitlist" class="section-card card">
+        <h2 class="section-title">Get Early Access</h2>
+        <p class="section-sub">Enter your email and we will add you to the Neuto waiting list.</p>
+        <form class="waitlist-form" id="waitlist-form">
+          <input
+            id="waitlist-email"
+            class="waitlist-input"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <button id="waitlist-submit" class="waitlist-button" type="submit">JOIN NOW</button>
+        </form>
+        <p id="waitlist-feedback" class="waitlist-feedback" role="status" aria-live="polite"></p>
+        <p class="waitlist-note">No spam. Invite-only beta updates.</p>
+      </section>
 
       <section class="section-card card">
         <h2 class="section-title">How It Works</h2>
@@ -757,6 +855,67 @@
     document.querySelectorAll(".card, .how-item, .benefit").forEach((el) => {
       el.classList.add("reveal");
       observer.observe(el);
+    });
+
+    const waitlistForm = document.getElementById("waitlist-form");
+    const waitlistEmail = document.getElementById("waitlist-email");
+    const waitlistSubmit = document.getElementById("waitlist-submit");
+    const waitlistFeedback = document.getElementById("waitlist-feedback");
+
+    const WAITLIST_API_BASE = window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://neuto-app.fly.dev";
+
+    function setWaitlistFeedback(message, type) {
+      waitlistFeedback.textContent = message;
+      waitlistFeedback.classList.remove("success", "error");
+      if (type) {
+        waitlistFeedback.classList.add(type);
+      }
+    }
+
+    waitlistForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = (waitlistEmail?.value || "").trim().toLowerCase();
+      if (!email) {
+        setWaitlistFeedback("Enter an email address.", "error");
+        return;
+      }
+
+      waitlistSubmit.disabled = true;
+      setWaitlistFeedback("Saving your email...", null);
+
+      try {
+        const response = await fetch(`${WAITLIST_API_BASE}/api/v2/waitlist`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, source: "website" })
+        });
+
+        let payload = {};
+        try {
+          payload = await response.json();
+        } catch (_) {
+          payload = {};
+        }
+
+        if (!response.ok) {
+          const detail = typeof payload.detail === "string" ? payload.detail : "Could not join waitlist.";
+          setWaitlistFeedback(detail, "error");
+          return;
+        }
+
+        if (payload.already_joined) {
+          setWaitlistFeedback("You're already on the waiting list.", "success");
+        } else {
+          setWaitlistFeedback("You're in. We'll email your beta invite soon.", "success");
+        }
+        waitlistForm.reset();
+      } catch (_) {
+        setWaitlistFeedback("Network error. Please try again.", "error");
+      } finally {
+        waitlistSubmit.disabled = false;
+      }
     });
   </script>
 </body>
