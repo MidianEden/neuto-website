@@ -469,6 +469,13 @@
       background: rgba(244, 250, 255, 0.9);
     }
 
+    .foot-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .foot strong {
       font-size: 14px;
     }
@@ -476,6 +483,18 @@
     .foot span {
       font-size: 13px;
       color: var(--ink-soft);
+    }
+
+    .foot-link {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #1f5e85;
+      text-decoration: none;
+    }
+
+    .foot-link:hover {
+      text-decoration: underline;
     }
 
     .section-card {
@@ -839,7 +858,10 @@
 
       <div class="foot card">
         <strong>Built to counter AI overreliance</strong>
-        <span>Neuto + E-Rival are in final tuning.</span>
+        <div class="foot-meta">
+          <span>Neuto + E-Rival are in final tuning.</span>
+          <a class="foot-link" href="privacy-policy.html">Privacy Policy</a>
+        </div>
       </div>
     </div>
   </div>
