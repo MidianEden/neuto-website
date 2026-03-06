@@ -4,22 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://neuto-app.fly.dev http://localhost:8000; form-action 'self';"
+  />
   <title>Neuto | Launch the Web App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #04131f;
-      --card: rgba(10, 31, 48, 0.78);
-      --card-strong: rgba(14, 40, 61, 0.92);
-      --ink: #f4fbff;
-      --ink-soft: #9db5c7;
-      --line: rgba(195, 231, 255, 0.12);
-      --blue: #52c3ff;
-      --green: #19d38d;
-      --blue-dark: #0f7ab6;
-      --font-main: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --bg: #030712;
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-elevated: rgba(31, 41, 55, 0.5);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --ink: #f9fafb;
+      --ink-soft: #9ca3af;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-bottom: rgba(255, 255, 255, 0.05);
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.3);
+      --blue: #3b82f6;
+      --blue-glow: rgba(59, 130, 246, 0.3);
+      --orange: #f59e0b;
+      --orange-glow: rgba(245, 158, 11, 0.3);
+      --font-main: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     * {
@@ -29,138 +39,233 @@
     body {
       margin: 0;
       min-height: 100vh;
+      padding: 40px 24px;
       font-family: var(--font-main);
       color: var(--ink);
-      background:
-        radial-gradient(700px circle at 12% 12%, rgba(25, 211, 141, 0.18), transparent 58%),
-        radial-gradient(720px circle at 88% 16%, rgba(82, 195, 255, 0.18), transparent 62%),
-        linear-gradient(180deg, #04131f 0%, #071e2d 100%);
+      background: var(--bg);
       overflow-x: hidden;
+      overflow-y: auto;
+      line-height: 1.5;
     }
 
-    .bg {
+    .bg-layer {
       position: fixed;
       inset: 0;
+      z-index: 0;
       pointer-events: none;
       overflow: hidden;
     }
 
-    .orb {
-      position: absolute;
-      border-radius: 999px;
-      filter: blur(18px);
-      opacity: 0.24;
-      animation: drift 12s ease-in-out infinite;
-    }
-
-    .orb.a {
-      width: 180px;
-      height: 180px;
-      top: 12%;
-      left: -40px;
-      background: rgba(25, 211, 141, 0.45);
-    }
-
-    .orb.b {
-      width: 260px;
-      height: 260px;
-      right: -80px;
-      top: 8%;
-      background: rgba(82, 195, 255, 0.38);
-      animation-delay: -4s;
-    }
-
-    .orb.c {
-      width: 210px;
-      height: 210px;
-      left: 24%;
-      bottom: -70px;
-      background: rgba(34, 143, 214, 0.24);
-      animation-delay: -7s;
-    }
-
     .shell {
-      width: min(1120px, 100%);
+      width: min(980px, 100%);
       margin: 0 auto;
-      padding: 32px 22px 44px;
       position: relative;
       z-index: 1;
     }
 
-    .topbar {
+    .bg-dot {
+      position: absolute;
+      border-radius: 999px;
+      opacity: 0.18;
+      filter: blur(15px);
+      animation: drift 12s ease-in-out infinite;
+      box-shadow: 0 0 40px currentColor;
+    }
+
+    .bg-dot.d1 {
+      width: 52px;
+      height: 52px;
+      color: var(--blue);
+      background: var(--blue);
+      top: 6%;
+      left: 5%;
+    }
+
+    .bg-dot.d2 {
+      width: 86px;
+      height: 86px;
+      color: var(--green);
+      background: var(--green);
+      top: 14%;
+      left: 20%;
+      animation-delay: -2s;
+    }
+
+    .bg-dot.d3 {
+      width: 132px;
+      height: 132px;
+      color: var(--orange);
+      background: var(--orange);
+      top: 4%;
+      right: 10%;
+      animation-delay: -4s;
+    }
+
+    .bg-dot.d4 {
+      width: 72px;
+      height: 72px;
+      color: var(--blue);
+      background: var(--blue);
+      top: 30%;
+      right: 4%;
+      animation-delay: -1s;
+    }
+
+    .bg-dot.d5 {
+      width: 168px;
+      height: 168px;
+      color: var(--green);
+      background: var(--green);
+      bottom: 26%;
+      left: 2%;
+      animation-delay: -3s;
+    }
+
+    .bg-dot.d6 {
+      width: 38px;
+      height: 38px;
+      color: var(--orange);
+      background: var(--orange);
+      bottom: 20%;
+      left: 35%;
+      animation-delay: -5s;
+    }
+
+    .bg-dot.d7 {
+      width: 210px;
+      height: 210px;
+      color: var(--blue);
+      background: var(--blue);
+      bottom: -5%;
+      right: 9%;
+      animation-delay: -2.5s;
+    }
+
+    .bg-dot.d8 {
+      width: 58px;
+      height: 58px;
+      color: var(--green);
+      background: var(--green);
+      bottom: 7%;
+      left: 52%;
+      animation-delay: -6s;
+    }
+
+    .bg-dot.d9 {
+      width: 94px;
+      height: 94px;
+      color: var(--orange);
+      background: var(--orange);
+      top: 48%;
+      left: 13%;
+      animation-delay: -1.5s;
+    }
+
+    .bg-dot.d10 {
+      width: 48px;
+      height: 48px;
+      color: var(--blue);
+      background: var(--blue);
+      top: 68%;
+      right: 32%;
+      animation-delay: -4.5s;
+    }
+
+    .bg-dot.d11 {
+      width: 124px;
+      height: 124px;
+      color: var(--green);
+      background: var(--green);
+      top: 64%;
+      right: -1%;
+      animation-delay: -3.5s;
+    }
+
+    .bg-dot.d12 {
+      width: 76px;
+      height: 76px;
+      color: var(--orange);
+      background: var(--orange);
+      top: 23%;
+      left: 41%;
+      animation-delay: -0.5s;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .brand {
-      font-size: 18px;
+      color: #dff1ff;
       font-weight: 900;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
+      font-size: 18px;
     }
 
-    .status {
+    .status-chip {
+      border: 2px solid var(--border);
+      border-bottom-width: 4px;
+      border-bottom-color: var(--border-bottom);
       border-radius: 999px;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--ink-soft);
+      background: var(--bg-card);
+      color: var(--ink);
+      font-weight: 900;
       font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      padding: 8px 14px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     }
 
     .hero {
+      padding: 48px;
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 420px);
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .panel {
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.22);
-    }
-
-    .copy {
-      padding: 38px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      margin-top: 24px;
     }
 
     .eyebrow {
-      margin: 0 0 12px;
-      color: #87d8ff;
+      margin: 0 0 10px;
       font-size: 12px;
+      letter-spacing: 0.12em;
       font-weight: 900;
-      letter-spacing: 0.13em;
+      color: #2274ab;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(44px, 8vw, 78px);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.03;
     }
 
     .sub {
-      margin: 18px 0 0;
-      max-width: 640px;
-      font-size: clamp(17px, 2.1vw, 21px);
+      margin: 14px 0 0;
+      font-size: 18px;
       line-height: 1.45;
       color: var(--ink-soft);
-      font-weight: 600;
+      max-width: 54ch;
     }
 
     .actions {
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 26px;
+      margin-top: 22px;
     }
 
     .btn {
@@ -168,323 +273,581 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      border-radius: 18px;
-      min-height: 58px;
-      padding: 0 22px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      border-radius: 16px;
+      padding: 16px 28px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
     .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.96;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover::after {
+      opacity: 1;
     }
 
     .btn.primary {
-      color: #04263d;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      box-shadow: 0 14px 30px rgba(25, 211, 141, 0.22);
+      background: var(--green);
+      color: #ffffff;
+      box-shadow: 0 0 20px var(--green-glow);
     }
 
     .btn.secondary {
-      color: var(--ink);
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
+      background: transparent;
+      border: 1px solid var(--blue);
+      color: #ffffff;
+      box-shadow: 0 0 15px var(--blue-glow);
     }
 
-    .bullet-row {
+    .tags {
+      margin-top: 18px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    .rival-card {
+      background: var(--bg-elevated);
+      border: 2px solid var(--border);
+      border-bottom-width: 4px;
+      border-bottom-color: var(--border-bottom);
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .rival-avatar {
+      width: min(100%, 260px);
+      aspect-ratio: 1 / 1;
+      display: block;
+      filter: drop-shadow(0 0 25px var(--blue-glow));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .rival-name {
+      margin: 10px 0 2px;
+      font-size: 29px;
+      font-weight: 900;
+    }
+
+    .rival-note {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink-soft);
+    }
+
+    .section-card {
+      margin-top: 14px;
+      padding: 20px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(24px, 3.7vw, 34px);
+      line-height: 1.08;
+    }
+
+    .section-sub {
+      margin: 10px 0 0;
+      font-size: 16px;
+      color: var(--ink-soft);
+    }
+
+    .waitlist-form {
+      margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .pill {
-      border-radius: 999px;
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.04);
-      color: #d8f1ff;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .device {
-      padding: 24px;
-      background:
-        radial-gradient(320px circle at 78% 18%, rgba(25, 211, 141, 0.18), transparent 48%),
-        radial-gradient(260px circle at 14% 80%, rgba(82, 195, 255, 0.16), transparent 44%),
-        var(--card-strong);
-      display: flex;
+      gap: 10px;
       align-items: center;
-      justify-content: center;
     }
 
-    .phone {
-      width: min(100%, 328px);
-      border-radius: 34px;
-      padding: 12px;
-      background: linear-gradient(180deg, #12283a 0%, #091521 100%);
-      border: 1px solid rgba(197, 233, 255, 0.16);
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    }
-
-    .phone-screen {
-      position: relative;
-      min-height: 580px;
-      border-radius: 24px;
-      overflow: hidden;
-      background:
-        radial-gradient(160px circle at 85% 15%, rgba(28, 212, 145, 0.26), transparent 60%),
-        radial-gradient(220px circle at 10% 86%, rgba(81, 182, 255, 0.24), transparent 65%),
-        linear-gradient(180deg, #0d2434 0%, #0b1a28 100%);
-      padding: 18px;
-    }
-
-    .notch {
-      width: 108px;
-      height: 20px;
-      border-radius: 0 0 14px 14px;
-      background: rgba(4, 10, 16, 0.92);
-      margin: -18px auto 26px;
-    }
-
-    .progress {
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(180, 225, 255, 0.12);
-      overflow: hidden;
-      margin-bottom: 22px;
-    }
-
-    .progress > span {
-      display: block;
-      width: 76%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-    }
-
-    .mini-brain {
-      width: 108px;
-      height: 108px;
-      margin: 0 auto 18px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 30% 30%, #7ddd4f 0 12%, transparent 13%),
-        radial-gradient(circle at 70% 28%, #ff9a1a 0 12%, transparent 13%),
-        radial-gradient(circle at 74% 68%, #a55eff 0 11%, transparent 12%),
-        radial-gradient(circle at 26% 68%, #ffd24c 0 11%, transparent 12%),
-        radial-gradient(circle at 50% 50%, #52c3ff 0 10%, transparent 11%),
-        radial-gradient(circle at 50% 50%, rgba(82, 195, 255, 0.18) 0 52%, transparent 53%);
-      border: 2px solid rgba(82, 195, 255, 0.26);
-      box-shadow: 0 0 28px rgba(82, 195, 255, 0.12);
-    }
-
-    .cardline {
-      margin: 0 0 10px;
+    .waitlist-input {
+      flex: 1;
+      min-width: 230px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--ink);
+      padding: 14px 16px;
       font-size: 15px;
-      font-weight: 800;
-      color: #d9f0ff;
+      font-family: var(--font-main);
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .headline {
-      margin: 0;
-      font-size: 38px;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+    .waitlist-input::placeholder {
+      color: #8ca1b5;
     }
 
-    .micro {
-      margin: 12px 0 18px;
-      color: var(--ink-soft);
-      font-size: 15px;
+    .waitlist-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    .waitlist-button {
+      border: none;
+      border-radius: 14px;
+      background: var(--green);
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      font-size: 13px;
+      padding: 14px 18px;
+      cursor: pointer;
+      min-width: 150px;
+      box-shadow: 0 0 18px var(--green-glow);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .waitlist-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .waitlist-button:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .waitlist-feedback {
+      margin: 8px 0 0;
+      min-height: 20px;
+      font-size: 13px;
       font-weight: 700;
-      line-height: 1.4;
+      color: #b7d4e7;
     }
 
-    .fake-card {
-      border-radius: 18px;
-      border: 1px solid rgba(195, 231, 255, 0.18);
-      background: rgba(232, 241, 247, 0.92);
+    .waitlist-feedback.success {
+      color: #7ce0ad;
+    }
+
+    .waitlist-feedback.error {
+      color: #ff9ca1;
+    }
+
+    .waitlist-note {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: #88a0b4;
+    }
+
+    .how-grid,
+    .faq-list {
+      margin-top: 16px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .how-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .how-item,
+    .faq-list details {
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
       padding: 14px;
     }
 
-    .fake-label {
-      color: #173a57;
-      font-size: 14px;
-      font-weight: 900;
-      margin-bottom: 10px;
-    }
-
-    .fake-input,
-    .fake-btn {
-      border-radius: 13px;
-      min-height: 42px;
-      display: flex;
+    .step-pill {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
       align-items: center;
-      padding: 0 12px;
-      font-size: 14px;
-      font-weight: 800;
-      margin-top: 9px;
-    }
-
-    .fake-input {
-      color: #617e97;
-      background: rgba(255, 255, 255, 0.9);
-      border: 2px solid #a5bdd0;
-    }
-
-    .fake-btn {
       justify-content: center;
-      color: #eafcff;
-      background: linear-gradient(135deg, #10b981, #1988d8);
-      border: none;
-      text-decoration: none;
-      margin-top: 12px;
+      font-size: 13px;
+      font-weight: 900;
+      color: #ffffff;
+      background: var(--blue);
     }
 
-    .footer {
+    .how-item h3 {
+      margin: 10px 0 8px;
+      font-size: 18px;
+    }
+
+    .how-item p,
+    .faq-list p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--ink-soft);
+    }
+
+    .faq-list summary {
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 15px;
+    }
+
+    .foot {
+      margin-top: 14px;
+      padding: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-top: 18px;
-      padding: 0 4px;
-      color: var(--ink-soft);
-      font-size: 14px;
-      font-weight: 700;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: rgba(244, 250, 255, 0.9);
     }
 
-    .footer a {
-      color: #dff3ff;
+    .foot-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .foot strong {
+      font-size: 14px;
+    }
+
+    .foot span {
+      font-size: 13px;
+      color: #4b6b85;
+    }
+
+    .foot-link {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #1f5e85;
       text-decoration: none;
     }
 
+    .foot-link:hover {
+      text-decoration: underline;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @keyframes drift {
-      0%, 100% {
-        transform: translate3d(0, 0, 0);
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
       }
 
       50% {
-        transform: translate3d(0, -16px, 0);
+        transform: translate(3vw, -5vw) scale(1.1);
       }
     }
 
-    @media (max-width: 900px) {
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 850px) {
       .hero {
         grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 16px;
       }
 
-      .copy,
-      .device {
-        padding: 24px;
-      }
-
-      h1 {
-        font-size: clamp(38px, 12vw, 62px);
+      .how-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 520px) {
-      .shell {
-        padding: 20px 14px 28px;
+    @media (max-width: 540px) {
+      body {
+        padding: 14px;
       }
 
-      .topbar {
-        align-items: flex-start;
-        flex-direction: column;
+      .top {
+        margin-bottom: 10px;
       }
 
-      .copy,
-      .device {
-        padding: 18px;
+      .status-chip {
+        font-size: 11px;
+        padding: 7px 11px;
       }
 
-      .phone-screen {
-        min-height: 500px;
+      .sub {
+        font-size: 16px;
       }
 
-      .actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
+      .section-card {
+        padding: 16px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="bg" aria-hidden="true">
-    <div class="orb a"></div>
-    <div class="orb b"></div>
-    <div class="orb c"></div>
+  <div class="bg-layer">
+    <div class="bg-dot d1"></div>
+    <div class="bg-dot d2"></div>
+    <div class="bg-dot d3"></div>
+    <div class="bg-dot d4"></div>
+    <div class="bg-dot d5"></div>
+    <div class="bg-dot d6"></div>
+    <div class="bg-dot d7"></div>
+    <div class="bg-dot d8"></div>
+    <div class="bg-dot d9"></div>
+    <div class="bg-dot d10"></div>
+    <div class="bg-dot d11"></div>
+    <div class="bg-dot d12"></div>
   </div>
 
   <div class="shell">
-    <div class="topbar">
-      <div class="brand">NEUTO</div>
-      <div class="status">WEB APP + LIVE BACKEND</div>
-    </div>
+    <div class="content">
+      <div class="top">
+        <div class="brand">NEUTO</div>
+        <div class="status-chip">WEB APP LIVE</div>
+      </div>
 
-    <main class="hero">
-      <section class="panel copy">
-        <p class="eyebrow">COGNITIVE TRAINING FOR THE AI AGE</p>
-        <h1>Launch the Neuto web app.</h1>
-        <p class="sub">
-          Train focus, memory, language, and adaptive thinking in the browser. The web app uses the live Neuto API,
-          so accounts, rounds, leaderboards, and progress all run against the backend.
-        </p>
+      <main class="hero card">
+        <section>
+          <p class="eyebrow">COGNITIVE SAFETY, NOW PLAYABLE ON WEB</p>
+          <h1>Keep your brain conditioned.<br />Stay safe from AI overuse.</h1>
+          <p class="sub">
+            Neuto helps you protect focus, memory, and independent thinking from the negative effects of heavy AI
+            reliance. The live web app connects to the production backend, and E-Rival is back on the landing page.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="/app/">OPEN WEB APP</a>
+            <a class="btn secondary" href="privacy-policy.html">PRIVACY POLICY</a>
+          </div>
+          <div class="tags">
+            <span class="tag">AI Overuse Protection</span>
+            <span class="tag">Conditioning Loops</span>
+            <span class="tag">Focus / Memory / Thinking</span>
+          </div>
+        </section>
 
-        <div class="actions">
-          <a class="btn primary" href="/app/">LAUNCH WEB APP</a>
-          <a class="btn secondary" href="privacy-policy.html">PRIVACY POLICY</a>
-        </div>
+        <aside class="rival-card">
+          <svg class="rival-avatar" viewBox="0 0 220 220" role="img" aria-label="Base E-Rival avatar">
+            <ellipse cx="110" cy="198" rx="66" ry="13" fill="#0A1216" opacity="0.5"></ellipse>
+            <circle cx="110" cy="20" r="12" fill="#66E2FF" opacity="0.6"></circle>
+            <circle cx="110" cy="20" r="6" fill="#66E2FF"></circle>
+            <path d="M104 24 L106 48 Q110 52 114 48 L116 24 Z" fill="#1B2B32"></path>
+            <rect x="36" y="62" width="148" height="110" rx="58" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="5"></rect>
+            <rect x="56" y="82" width="108" height="62" rx="29" fill="#1B2B32"></rect>
+            <rect x="62" y="87" width="96" height="52" rx="24" fill="#0A1216"></rect>
+            <ellipse cx="94" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24"></ellipse>
+            <ellipse cx="126" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24"></ellipse>
+            <ellipse cx="94" cy="113" rx="11" ry="16" fill="#FF313A"></ellipse>
+            <ellipse cx="126" cy="113" rx="11" ry="16" fill="#FF313A"></ellipse>
+            <ellipse cx="90" cy="107" rx="5" ry="6" fill="#FFD1D4"></ellipse>
+            <ellipse cx="122" cy="107" rx="5" ry="6" fill="#FFD1D4"></ellipse>
+            <rect x="22" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="177" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="62" y="155" width="96" height="36" rx="16" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="84" y="163" width="52" height="21" rx="7" fill="#131F24"></rect>
+            <circle cx="98" cy="173" r="5" fill="#66E2FF"></circle>
+            <rect x="107" y="168" width="16" height="10" rx="3" fill="#A7F0FF"></rect>
+            <rect x="53" y="171" width="18" height="38" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="149" y="171" width="18" height="38" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <circle cx="61" cy="208" r="9" fill="#1B2B32"></circle>
+            <circle cx="158" cy="208" r="9" fill="#1B2B32"></circle>
+            <rect x="74" y="191" width="28" height="24" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="119" y="191" width="28" height="24" rx="9" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4"></rect>
+            <rect x="70" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
+            <rect x="115" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
+          </svg>
+          <p class="rival-name">E-Rival</p>
+          <p class="rival-note">Your cognitive safety rival is warming up.</p>
+        </aside>
+      </main>
 
-        <div class="bullet-row">
-          <span class="pill">Live backend</span>
-          <span class="pill">Account sync</span>
-          <span class="pill">Leaderboards</span>
-          <span class="pill">Browser playable</span>
+      <section id="waitlist" class="section-card card">
+        <h2 class="section-title">Get Early Access</h2>
+        <p class="section-sub">Enter your email and we will add you to the Neuto waiting list.</p>
+        <form class="waitlist-form" id="waitlist-form">
+          <input
+            id="waitlist-email"
+            class="waitlist-input"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <button id="waitlist-submit" class="waitlist-button" type="submit">JOIN NOW</button>
+        </form>
+        <p id="waitlist-feedback" class="waitlist-feedback" role="status" aria-live="polite"></p>
+        <p class="waitlist-note">No spam. Invite-only beta updates.</p>
+      </section>
+
+      <section class="section-card card reveal">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Short loops, measurable baselines, and adaptation to your AI usage profile.</p>
+        <div class="how-grid">
+          <article class="how-item">
+            <span class="step-pill">1</span>
+            <h3>Play quick mini-games</h3>
+            <p>1-3 minute rounds train focus, working memory, recall, and decision speed without long sessions.</p>
+          </article>
+          <article class="how-item">
+            <span class="step-pill">2</span>
+            <h3>Enter the live web app</h3>
+            <p>The launch button drops you into the browser build that talks to the same backend used by the app.</p>
+          </article>
+          <article class="how-item">
+            <span class="step-pill">3</span>
+            <h3>Track cognitive safety</h3>
+            <p>E-Rival and the Neural Map show where AI overreliance is creeping in and where your conditioning is improving.</p>
+          </article>
         </div>
       </section>
 
-      <aside class="panel device">
-        <div class="phone">
-          <div class="notch"></div>
-          <div class="phone-screen">
-            <div class="progress"><span></span></div>
-            <div class="mini-brain"></div>
-            <p class="cardline">Neuto Web</p>
-            <h2 class="headline">Play in your browser.</h2>
-            <p class="micro">
-              Start from the landing page, then enter the full app with one tap.
-            </p>
-
-            <div class="fake-card">
-              <div class="fake-label">Quick Launch</div>
-              <div class="fake-input">Live app build is ready</div>
-              <div class="fake-input">Backend connected</div>
-              <a class="fake-btn" href="/app/">Open App</a>
-            </div>
-          </div>
+      <section class="section-card card reveal">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-list">
+          <details open>
+            <summary>Is Neuto anti-AI?</summary>
+            <p>No. It is built for people who use AI daily and want to preserve independent thinking while using it.</p>
+          </details>
+          <details>
+            <summary>Does the web app use the real backend?</summary>
+            <p>Yes. The browser build talks to the live backend for rounds, progress, waitlist, and leaderboard data.</p>
+          </details>
+          <details>
+            <summary>Why is payment still required on web?</summary>
+            <p>The web build keeps the PRIME gate active. Browser checkout stays locked until a proper RevenueCat web key is configured.</p>
+          </details>
         </div>
-      </aside>
-    </main>
+      </section>
 
-    <footer class="footer">
-      <span>Neuto on web now opens through a landing page first.</span>
-      <a href="landing.html">Legacy long-form landing</a>
-    </footer>
+      <div class="foot card reveal">
+        <strong>Built to counter AI overreliance</strong>
+        <div class="foot-meta">
+          <span>Neuto + E-Rival are in final tuning.</span>
+          <a class="foot-link" href="landing.html">Legacy landing</a>
+          <a class="foot-link" href="privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".card, .how-item, .faq-list details").forEach((el) => {
+      el.classList.add("reveal");
+      observer.observe(el);
+    });
+
+    const waitlistForm = document.getElementById("waitlist-form");
+    const waitlistEmail = document.getElementById("waitlist-email");
+    const waitlistSubmit = document.getElementById("waitlist-submit");
+    const waitlistFeedback = document.getElementById("waitlist-feedback");
+
+    const WAITLIST_API_BASE = window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://neuto-app.fly.dev";
+
+    function setWaitlistFeedback(message, type) {
+      waitlistFeedback.textContent = message;
+      waitlistFeedback.classList.remove("success", "error");
+      if (type) {
+        waitlistFeedback.classList.add(type);
+      }
+    }
+
+    waitlistForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const email = (waitlistEmail?.value || "").trim().toLowerCase();
+      if (!email) {
+        setWaitlistFeedback("Enter an email address.", "error");
+        return;
+      }
+
+      waitlistSubmit.disabled = true;
+      setWaitlistFeedback("Saving your email...", null);
+
+      try {
+        const response = await fetch(`${WAITLIST_API_BASE}/api/v2/waitlist`, {
+          method: "POST",
+          mode: "cors",
+          credentials: "omit",
+          cache: "no-store",
+          referrerPolicy: "strict-origin-when-cross-origin",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, source: "website" })
+        });
+
+        let payload = {};
+        try {
+          payload = await response.json();
+        } catch (_) {
+          payload = {};
+        }
+
+        if (!response.ok) {
+          const detail = typeof payload.detail === "string" ? payload.detail : "Could not join waitlist.";
+          setWaitlistFeedback(detail, "error");
+          return;
+        }
+
+        if (payload.already_joined) {
+          setWaitlistFeedback("You're already on the waiting list.", "success");
+        } else {
+          setWaitlistFeedback("You're in. We'll email your beta invite soon.", "success");
+        }
+        waitlistForm.reset();
+      } catch (_) {
+        setWaitlistFeedback("Network error. Please try again.", "error");
+      } finally {
+        waitlistSubmit.disabled = false;
+      }
+    });
+  </script>
 </body>
 
 </html>

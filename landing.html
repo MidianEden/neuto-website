@@ -4,6 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://neuto-app.fly.dev http://localhost:8000; form-action 'self';"
+  />
   <title>Neuto Landing | Open the Web App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -714,7 +719,7 @@
           </p>
           <div class="actions">
             <a class="btn primary" href="/app/">OPEN WEB APP</a>
-            <a class="btn secondary" href="https://github.com/MidianEden/neuto-website">VIEW PROJECT</a>
+            <a class="btn secondary" href="https://github.com/MidianEden/neuto-website" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
           </div>
           <div class="tags">
             <span class="tag">AI Overuse Protection</span>
@@ -910,6 +915,10 @@
       try {
         const response = await fetch(`${WAITLIST_API_BASE}/api/v2/waitlist`, {
           method: "POST",
+          mode: "cors",
+          credentials: "omit",
+          cache: "no-store",
+          referrerPolicy: "strict-origin-when-cross-origin",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, source: "website" })
         });
