@@ -8,8 +8,10 @@
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline'; connect-src 'self' https://neuto-app.fly.dev http://localhost:8000; form-action 'self';"
+    content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://neuto-app.fly.dev http://localhost:8000 https://www.google-analytics.com https://region1.google-analytics.com; form-action 'self';"
   />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KR710KMWDF"></script>
+  <script src="/analytics.js" defer></script>
   <title>Neuto | Launch the Web App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
