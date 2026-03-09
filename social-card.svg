@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Neuto social card">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <radialGradient id="glowA" cx="20%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glowB" cx="80%" cy="25%" r="55%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glowA)" />
+  <rect width="1200" height="630" fill="url(#glowB)" />
+
+  <circle cx="1010" cy="118" r="18" fill="#67e8f9" opacity="0.9" />
+  <circle cx="1080" cy="198" r="10" fill="#10b981" opacity="0.7" />
+  <circle cx="1116" cy="152" r="7" fill="#3b82f6" opacity="0.85" />
+
+  <rect x="72" y="72" width="1056" height="486" rx="32" fill="rgba(17,24,39,0.54)" stroke="rgba(255,255,255,0.12)" />
+
+  <rect x="120" y="136" width="110" height="110" rx="24" fill="#0f172a" stroke="rgba(255,255,255,0.08)" />
+  <path d="M154 220V160h13l32 39v-39h15v60h-13l-32-39v39z" fill="url(#accent)" />
+
+  <text x="120" y="310" fill="#a5f3fc" font-family="Outfit, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="8">NEUTO</text>
+  <text x="120" y="392" fill="#f8fafc" font-family="Outfit, Arial, sans-serif" font-size="72" font-weight="800">
+    Brain training for focus,
+  </text>
+  <text x="120" y="470" fill="#f8fafc" font-family="Outfit, Arial, sans-serif" font-size="72" font-weight="800">
+    memory, and reasoning.
+  </text>
+  <text x="120" y="534" fill="#93c5fd" font-family="Outfit, Arial, sans-serif" font-size="32" font-weight="500">
+    Short daily sessions built to keep you sharp in an AI-heavy world.
+  </text>
+
+  <rect x="770" y="382" width="250" height="76" rx="18" fill="rgba(16,185,129,0.12)" stroke="rgba(16,185,129,0.35)" />
+  <text x="805" y="428" fill="#d1fae5" font-family="Outfit, Arial, sans-serif" font-size="30" font-weight="700">Focus</text>
+
+  <rect x="846" y="284" width="220" height="76" rx="18" fill="rgba(59,130,246,0.12)" stroke="rgba(59,130,246,0.32)" />
+  <text x="878" y="330" fill="#dbeafe" font-family="Outfit, Arial, sans-serif" font-size="30" font-weight="700">Memory</text>
+
+  <rect x="896" y="186" width="182" height="76" rx="18" fill="rgba(99,102,241,0.12)" stroke="rgba(96,165,250,0.24)" />
+  <text x="924" y="232" fill="#e0e7ff" font-family="Outfit, Arial, sans-serif" font-size="30" font-weight="700">Reasoning</text>
+</svg>
