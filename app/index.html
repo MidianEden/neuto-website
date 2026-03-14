@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover, interactive-widget=resizes-content" />
     <meta name="google-adsense-account" content="ca-pub-3644216210151851" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; img-src 'self' data: blob: https:; media-src 'self' data: blob: https:; script-src 'self' https://js.stripe.com https://*.revenuecat.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://*.adtrafficquality.google https://www.googletagmanager.com https://apis.google.com https://www.gstatic.com; style-src 'self' 'unsafe-inline'; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https:; form-action 'self' https:; worker-src 'self' blob:;" />
@@ -25,10 +25,16 @@
         height: 100%;
         flex: 1;
       }
-          body {
-        overscroll-behavior-y: none;
+          html, body, #root {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+      body {
+        overscroll-behavior: none;
         -webkit-text-size-adjust: 100%;
         background-color: #03111c;
+        touch-action: manipulation;
       }
       @supports (height: 100dvh) {
         html, body, #root {
@@ -47,6 +53,6 @@
     </noscript>
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
-  <script src="/_expo/static/js/web/AppEntry-4a5c4d610765de1b71f2c0ed3e29bd45.js" defer></script>
+  <script src="/_expo/static/js/web/AppEntry-c9b34dfb71e7c76731c24dd9b1959aaf.js" defer></script>
 </body>
 </html>
