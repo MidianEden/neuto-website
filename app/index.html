@@ -30,6 +30,15 @@
         max-width: 100%;
         overflow: hidden;
       }
+      #root > div {
+        display: flex;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        min-height: 0;
+        overflow: hidden;
+      }
       body {
         overscroll-behavior: none;
         -webkit-text-size-adjust: 100%;
@@ -37,8 +46,9 @@
         touch-action: manipulation;
       }
       @supports (height: 100dvh) {
-        html, body, #root {
+        html, body, #root, #root > div {
           height: 100dvh;
+          max-height: 100dvh;
         }
       }
     </style>
@@ -53,6 +63,6 @@
     </noscript>
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
-  <script src="/_expo/static/js/web/AppEntry-2e8a2aea607bf16bfe9f23d8c9732a73.js" defer></script>
+  <script src="/_expo/static/js/web/AppEntry-d6d9815754fca7ac742111e2e35bd2bd.js" defer></script>
 </body>
 </html>
