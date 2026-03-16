@@ -75,18 +75,34 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What do I do in Neuto?",
+              "name": "What do I actually do in Neuto?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "You play short daily rounds that train memory, focus, language, math, and reasoning, with difficulty that adjusts as you improve."
+                "text": "You play short daily rounds that train memory, focus, language, math, and reasoning. The app keeps adjusting so it does not feel like the same drill every day."
               }
             },
             {
               "@type": "Question",
-              "name": "How much time does it take?",
+              "name": "How much time do I need each day?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Most people can get through a useful session in about 5 to 10 minutes a day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to be good at brain games already?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Neuto starts from your baseline and gets harder as you improve."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is Neuto anti-AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It is for people who use AI and do not want to feel mentally rusty without it."
               }
             },
             {
@@ -108,48 +124,36 @@
   <style>
     :root {
       --bg: #030712;
-      --bg-card: rgba(17, 24, 39, 0.72);
-      --bg-elevated: rgba(31, 41, 55, 0.56);
+      --bg-card: rgba(17, 24, 39, 0.7);
+      --bg-elevated: rgba(31, 41, 55, 0.5);
       --glass-border: rgba(255, 255, 255, 0.08);
       --ink: #f9fafb;
       --ink-soft: #9ca3af;
       --border: rgba(255, 255, 255, 0.1);
       --border-bottom: rgba(255, 255, 255, 0.05);
       --green: #10b981;
-      --green-glow: rgba(16, 185, 129, 0.32);
+      --green-glow: rgba(16, 185, 129, 0.3);
       --blue: #3b82f6;
-      --blue-glow: rgba(59, 130, 246, 0.32);
+      --blue-glow: rgba(59, 130, 246, 0.3);
       --orange: #f59e0b;
-      --orange-glow: rgba(245, 158, 11, 0.32);
+      --orange-glow: rgba(245, 158, 11, 0.3);
       --font-main: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.36);
-      --shadow-button: 0 10px 24px rgba(0, 0, 0, 0.3);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       min-height: 100vh;
-      padding: 28px 22px 40px;
+      padding: 40px 24px;
       font-family: var(--font-main);
       color: var(--ink);
       background: var(--bg);
       overflow-x: hidden;
       overflow-y: auto;
-      line-height: 1.45;
-    }
-
-    a,
-    button,
-    input {
-      font: inherit;
+      line-height: 1.5;
     }
 
     .bg-layer {
@@ -158,6 +162,13 @@
       z-index: 0;
       pointer-events: none;
       overflow: hidden;
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .bg-dot {
@@ -288,13 +299,6 @@
       animation-delay: -0.5s;
     }
 
-    .shell {
-      width: min(1120px, 100%);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
     .content {
       position: relative;
       z-index: 1;
@@ -304,47 +308,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
       color: #dff1ff;
-      text-decoration: none;
       font-weight: 900;
-      letter-spacing: 0.06em;
-      font-size: 18px;
-    }
-
-    .brand-mark {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--green), var(--blue));
-      box-shadow: 0 0 18px rgba(59, 130, 246, 0.4);
-    }
-
-    .top-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .top-link {
-      color: #c6d8eb;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 800;
       letter-spacing: 0.04em;
-    }
-
-    .top-link:hover {
-      color: #ffffff;
+      font-size: 18px;
     }
 
     .status-chip {
@@ -364,474 +335,178 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--glass-border);
-      border-radius: 30px;
-      box-shadow: var(--shadow-card);
+      border-radius: 28px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
     }
 
     .hero {
+      padding: 48px;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 28px;
-      align-items: center;
-      padding: 34px;
-    }
-
-    .hero-copy {
-      max-width: 540px;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 40px;
+      margin-top: 24px;
     }
 
     .eyebrow {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
       font-size: 12px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       font-weight: 900;
-      color: #63b0e2;
+      color: #2274ab;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(40px, 6vw, 66px);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.03;
     }
 
     .sub {
-      margin: 16px 0 0;
-      font-size: clamp(17px, 2.2vw, 22px);
-      line-height: 1.35;
+      margin: 14px 0 0;
+      font-size: 18px;
+      line-height: 1.45;
       color: var(--ink-soft);
-      max-width: 24ch;
+      max-width: 54ch;
     }
 
     .actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 22px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 172px;
       text-decoration: none;
-      font-weight: 900;
+      font-weight: 800;
       font-size: 14px;
       letter-spacing: 0.05em;
-      border-radius: 18px;
+      border-radius: 16px;
       padding: 16px 28px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow-button);
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.1);
+      opacity: 0;
+      transition: opacity 0.2s;
     }
 
     .btn:hover {
       transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:hover::after {
+      opacity: 1;
     }
 
     .btn.primary {
       background: var(--green);
       color: #ffffff;
-      box-shadow: 0 0 20px var(--green-glow), var(--shadow-button);
+      box-shadow: 0 0 20px var(--green-glow);
     }
 
     .btn.secondary {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(59, 130, 246, 0.55);
+      background: transparent;
+      border: 1px solid var(--blue);
       color: #ffffff;
-      box-shadow: 0 0 18px var(--blue-glow);
+      box-shadow: 0 0 15px var(--blue-glow);
     }
 
-    .hero-proof {
-      margin-top: 22px;
+    .tags {
+      margin-top: 18px;
       display: flex;
+      gap: 8px;
       flex-wrap: wrap;
-      gap: 10px;
     }
 
-    .proof-pill,
-    .mini-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
+    .tag {
       background: var(--bg-elevated);
-      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px 16px;
+      font-weight: 600;
       font-size: 13px;
-      font-weight: 700;
-      color: #d6e7f8;
+      color: var(--ink-soft);
     }
 
-    .proof-dot,
-    .mini-dot,
-    .line-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      flex: 0 0 auto;
-    }
-
-    .proof-dot.green,
-    .mini-dot.green,
-    .line-dot.green {
-      background: var(--green);
-      box-shadow: 0 0 12px var(--green-glow);
-    }
-
-    .proof-dot.blue,
-    .mini-dot.blue,
-    .line-dot.blue {
-      background: var(--blue);
-      box-shadow: 0 0 12px var(--blue-glow);
-    }
-
-    .proof-dot.orange,
-    .mini-dot.orange,
-    .line-dot.orange {
-      background: var(--orange);
-      box-shadow: 0 0 12px var(--orange-glow);
-    }
-
-    .hero-stage {
-      border-radius: 28px;
-      border: 1px solid var(--glass-border);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-      padding: 20px;
-      display: grid;
-      gap: 18px;
-      justify-items: center;
-    }
-
-    .stage-header {
-      width: 100%;
+    .rival-card {
+      background: var(--bg-elevated);
+      border: 2px solid var(--border);
+      border-bottom-width: 4px;
+      border-bottom-color: var(--border-bottom);
+      border-radius: 20px;
+      padding: 14px;
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
+      flex-direction: column;
       align-items: center;
-    }
-
-    .stage-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      padding: 8px 12px;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      background: rgba(16, 185, 129, 0.08);
-      color: #dff8ec;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .stage-score {
-      color: #c8ddf2;
-      font-size: 13px;
-      font-weight: 800;
+      text-align: center;
     }
 
     .rival-avatar {
-      width: min(100%, 290px);
+      width: min(100%, 260px);
       aspect-ratio: 1 / 1;
       display: block;
       filter: drop-shadow(0 0 25px var(--blue-glow));
       animation: float 4s ease-in-out infinite;
     }
 
-    .rival-meta {
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .meta-card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 12px;
-    }
-
-    .meta-label {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #8ea2b5;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .meta-value {
-      display: block;
-      margin-top: 6px;
-      font-size: 18px;
-      font-weight: 900;
-    }
-
     .rival-name {
-      margin: 0;
-      font-size: 30px;
+      margin: 10px 0 2px;
+      font-size: 29px;
       font-weight: 900;
-      line-height: 1;
     }
 
     .rival-note {
-      margin: 2px 0 0;
-      font-size: 14px;
-      color: var(--ink-soft);
-    }
-
-    .metrics {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .metric {
-      padding: 22px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .metric-value {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .metric-label {
-      font-size: 14px;
-      color: #dcecff;
-      font-weight: 800;
-    }
-
-    .metric-copy {
       margin: 0;
       font-size: 14px;
       color: var(--ink-soft);
     }
 
-    .feature {
-      margin-top: 16px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 24px;
-      align-items: center;
-    }
-
-    .feature-copy {
-      max-width: 460px;
-    }
-
-    .feature-kicker {
-      margin: 0 0 10px;
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      font-weight: 900;
-      color: #7cb7e2;
+    .section-card {
+      margin-top: 14px;
+      padding: 20px;
     }
 
     .section-title {
       margin: 0;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
+      font-size: clamp(24px, 3.7vw, 34px);
+      line-height: 1.08;
     }
 
     .section-sub {
-      margin: 12px 0 0;
-      font-size: 17px;
-      color: var(--ink-soft);
-      line-height: 1.4;
-    }
-
-    .tag-row {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .lesson-stack {
-      display: grid;
-      gap: 12px;
-    }
-
-    .lesson-card {
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      background: var(--bg-elevated);
-      padding: 16px 18px;
-      box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.02);
-    }
-
-    .lesson-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .lesson-title {
-      font-size: 17px;
-      font-weight: 900;
-    }
-
-    .lesson-time {
-      font-size: 12px;
-      font-weight: 900;
-      color: #d0e4f8;
-    }
-
-    .lesson-copy {
       margin: 10px 0 0;
-      font-size: 14px;
+      font-size: 16px;
       color: var(--ink-soft);
-    }
-
-    .progress-bar {
-      margin-top: 14px;
-      height: 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--green), var(--blue));
-    }
-
-    .path-board {
-      position: relative;
-      min-height: 390px;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      background: radial-gradient(circle at top, rgba(59, 130, 246, 0.12), transparent 50%), rgba(255, 255, 255, 0.03);
-      padding: 22px;
-      overflow: hidden;
-    }
-
-    .path-line {
-      position: absolute;
-      left: 50%;
-      top: 60px;
-      bottom: 50px;
-      width: 6px;
-      transform: translateX(-50%);
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.7), rgba(59, 130, 246, 0.28));
-      box-shadow: 0 0 24px rgba(16, 185, 129, 0.18);
-    }
-
-    .path-node {
-      position: absolute;
-      display: grid;
-      gap: 8px;
-      justify-items: center;
-      text-align: center;
-    }
-
-    .path-node:nth-child(2) {
-      top: 24px;
-      left: 15%;
-    }
-
-    .path-node:nth-child(3) {
-      top: 135px;
-      right: 12%;
-    }
-
-    .path-node:nth-child(4) {
-      top: 248px;
-      left: 18%;
-    }
-
-    .path-node:nth-child(5) {
-      bottom: 18px;
-      right: 16%;
-    }
-
-    .path-badge {
-      width: 76px;
-      height: 76px;
-      border-radius: 999px;
-      display: grid;
-      place-items: center;
-      font-size: 14px;
-      font-weight: 900;
-      color: #ffffff;
-      border: 4px solid rgba(0, 0, 0, 0.18);
-      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.24);
-    }
-
-    .path-badge.green {
-      background: var(--green);
-    }
-
-    .path-badge.blue {
-      background: var(--blue);
-    }
-
-    .path-badge.orange {
-      background: var(--orange);
-    }
-
-    .path-label {
-      max-width: 110px;
-      font-size: 13px;
-      font-weight: 800;
-      color: #dcecff;
-    }
-
-    .line-list {
-      margin-top: 18px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .line-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 15px;
-      color: #d8e7f5;
-      font-weight: 700;
-    }
-
-    .cta {
-      margin-top: 16px;
-      padding: 28px;
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: 22px;
-      align-items: center;
     }
 
     .waitlist-form {
+      margin-top: 14px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      justify-content: flex-end;
     }
 
     .waitlist-input {
-      flex: 1 1 240px;
-      min-width: 0;
-      border-radius: 16px;
+      flex: 1;
+      min-width: 230px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background: rgba(255, 255, 255, 0.04);
       color: var(--ink);
-      padding: 15px 16px;
+      padding: 14px 16px;
       font-size: 15px;
+      font-family: var(--font-main);
       outline: none;
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
@@ -847,15 +522,16 @@
 
     .waitlist-button {
       border: none;
-      border-radius: 16px;
+      border-radius: 14px;
       background: var(--green);
       color: #ffffff;
+      font-family: var(--font-main);
       font-weight: 900;
       letter-spacing: 0.03em;
       font-size: 13px;
-      padding: 15px 20px;
+      padding: 14px 18px;
       cursor: pointer;
-      min-width: 156px;
+      min-width: 150px;
       box-shadow: 0 0 18px var(--green-glow);
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
@@ -871,7 +547,7 @@
     }
 
     .waitlist-feedback {
-      margin: 10px 0 0;
+      margin: 8px 0 0;
       min-height: 20px;
       font-size: 13px;
       font-weight: 700;
@@ -887,67 +563,71 @@
     }
 
     .waitlist-note {
-      margin: 6px 0 0;
+      margin: 4px 0 0;
       font-size: 12px;
       color: #88a0b4;
     }
 
-    .faq-shell {
-      margin-top: 16px;
-      display: grid;
-      grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
-      gap: 16px;
-      align-items: start;
-    }
-
-    .faq-head {
-      padding: 18px 4px 0 4px;
-    }
-
+    .how-grid,
     .faq-list {
+      margin-top: 16px;
       display: grid;
       gap: 12px;
     }
 
+    .how-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .how-item,
     .faq-list details {
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid var(--border);
       background: var(--bg-elevated);
-      padding: 16px 18px;
+      padding: 14px;
+    }
+
+    .step-pill {
+      display: inline-flex;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 900;
+      color: #ffffff;
+      background: var(--blue);
+    }
+
+    .how-item h3 {
+      margin: 10px 0 8px;
+      font-size: 18px;
+    }
+
+    .how-item p,
+    .faq-list p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--ink-soft);
     }
 
     .faq-list summary {
       cursor: pointer;
       font-weight: 900;
       font-size: 15px;
-      list-style: none;
-    }
-
-    .faq-list summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-list p {
-      margin: 10px 0 0;
-      font-size: 14px;
-      line-height: 1.45;
-      color: var(--ink-soft);
     }
 
     .foot {
-      margin-top: 16px;
-      padding: 18px 20px;
+      margin-top: 14px;
+      padding: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
-      background: rgba(244, 250, 255, 0.92);
-    }
-
-    .foot strong {
-      color: #132a3a;
-      font-size: 14px;
+      gap: 8px;
+      background: rgba(244, 250, 255, 0.9);
     }
 
     .foot-meta {
@@ -955,6 +635,10 @@
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .foot strong {
+      font-size: 14px;
     }
 
     .foot span {
@@ -976,8 +660,8 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
     .reveal.active {
@@ -986,6 +670,7 @@
     }
 
     @keyframes drift {
+
       0%,
       100% {
         transform: translate(0, 0) scale(1);
@@ -997,6 +682,7 @@
     }
 
     @keyframes float {
+
       0%,
       100% {
         transform: translateY(0);
@@ -1007,113 +693,38 @@
       }
     }
 
-    @media (max-width: 980px) {
-      .hero,
-      .feature,
-      .cta,
-      .faq-shell {
+    @media (max-width: 850px) {
+      .hero {
         grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 16px;
       }
 
-      .hero-copy,
-      .feature-copy {
-        max-width: none;
-      }
-
-      .cta {
-        align-items: start;
-      }
-
-      .waitlist-form {
-        justify-content: stretch;
-      }
-
-      .faq-head {
-        padding: 0;
+      .how-grid {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 540px) {
       body {
-        padding: 16px 14px 28px;
+        padding: 14px;
       }
 
       .top {
-        align-items: flex-start;
+        margin-bottom: 10px;
       }
 
-      .hero,
-      .feature,
-      .cta {
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: clamp(36px, 13vw, 52px);
+      .status-chip {
+        font-size: 11px;
+        padding: 7px 11px;
       }
 
       .sub {
-        max-width: 28ch;
+        font-size: 16px;
       }
 
-      .metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .rival-meta {
-        grid-template-columns: 1fr;
-      }
-
-      .path-board {
-        min-height: 440px;
-      }
-
-      .path-node:nth-child(2) {
-        left: 8%;
-      }
-
-      .path-node:nth-child(3) {
-        right: 6%;
-      }
-
-      .path-node:nth-child(4) {
-        left: 10%;
-      }
-
-      .path-node:nth-child(5) {
-        right: 9%;
-      }
-
-      .foot {
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .top-right {
-        justify-content: flex-start;
-      }
-
-      .btn,
-      .waitlist-button {
-        width: 100%;
-      }
-
-      .waitlist-form {
-        display: grid;
-      }
-
-      .waitlist-input {
-        width: 100%;
-      }
-
-      .path-board {
-        min-height: 470px;
-      }
-
-      .path-badge {
-        width: 68px;
-        height: 68px;
+      .section-card {
+        padding: 16px;
       }
     }
   </style>
@@ -1137,43 +748,31 @@
 
   <div class="shell">
     <div class="content">
-      <header class="top">
-        <a class="brand" href="/">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span>NEUTO</span>
-        </a>
-        <div class="top-right">
-          <a class="top-link" href="privacy-policy.html">PRIVACY</a>
-          <a class="top-link" href="terms-and-conditions.html">TERMS</a>
-          <div class="status-chip">WEB APP LIVE</div>
-        </div>
-      </header>
+      <div class="top">
+        <div class="brand">NEUTO</div>
+        <div class="status-chip">WEB APP LIVE</div>
+      </div>
 
-      <main class="hero card reveal">
-        <section class="hero-copy">
-          <p class="eyebrow">COGNITIVE TRAINING FOR THE AI ERA</p>
-          <h1>Train your brain before AI starts thinking for you.</h1>
-          <p class="sub">Short daily rounds for focus, memory, and reasoning. Fast to start. Hard to fake.</p>
+      <main class="hero card">
+        <section>
+          <p class="eyebrow">COGNITIVE SAFETY, NOW PLAYABLE ON WEB</p>
+          <h1>Keep your brain conditioned.<br />Stay safe from AI overuse.</h1>
+          <p class="sub">
+            Neuto helps you protect focus, memory, and independent thinking from the negative effects of heavy AI
+            reliance. The live web app connects to the production backend, and E-Rival is back on the landing page.
+          </p>
           <div class="actions">
             <a class="btn primary" href="/app/">OPEN WEB APP</a>
-            <a class="btn secondary" href="#waitlist">JOIN WAITLIST</a>
+            <a class="btn secondary" href="privacy-policy.html">PRIVACY POLICY</a>
           </div>
-          <div class="hero-proof" aria-label="Product highlights">
-            <span class="proof-pill"><span class="proof-dot green" aria-hidden="true"></span>5 minute sessions</span>
-            <span class="proof-pill"><span class="proof-dot blue" aria-hidden="true"></span>Adaptive difficulty</span>
-            <span class="proof-pill"><span class="proof-dot orange" aria-hidden="true"></span>Live backend</span>
+          <div class="tags">
+            <span class="tag">AI Overuse Protection</span>
+            <span class="tag">Conditioning Loops</span>
+            <span class="tag">Focus / Memory / Thinking</span>
           </div>
         </section>
 
-        <aside class="hero-stage" aria-label="E-Rival overview">
-          <div class="stage-header">
-            <div class="stage-badge">
-              <span class="proof-dot green" aria-hidden="true"></span>
-              E-Rival online
-            </div>
-            <div class="stage-score">Today's load: 78</div>
-          </div>
-
+        <aside class="rival-card">
           <svg class="rival-avatar" viewBox="0 0 220 220" role="img" aria-label="Base E-Rival avatar">
             <ellipse cx="110" cy="198" rx="66" ry="13" fill="#0A1216" opacity="0.5"></ellipse>
             <circle cx="110" cy="20" r="12" fill="#66E2FF" opacity="0.6"></circle>
@@ -1203,166 +802,70 @@
             <rect x="70" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
             <rect x="115" y="211" width="36" height="9" rx="4" fill="#1B2B32"></rect>
           </svg>
-
-          <div>
-            <p class="rival-name">E-Rival</p>
-            <p class="rival-note">Your benchmark for staying sharp.</p>
-          </div>
-
-          <div class="rival-meta">
-            <div class="meta-card">
-              <span class="meta-label">Focus</span>
-              <span class="meta-value">91%</span>
-            </div>
-            <div class="meta-card">
-              <span class="meta-label">Memory</span>
-              <span class="meta-value">84%</span>
-            </div>
-            <div class="meta-card">
-              <span class="meta-label">Reasoning</span>
-              <span class="meta-value">88%</span>
-            </div>
-          </div>
+          <p class="rival-name">E-Rival</p>
+          <p class="rival-note">Your cognitive safety rival is warming up.</p>
         </aside>
       </main>
 
-      <section class="metrics reveal" aria-label="Key product traits">
-        <article class="metric card">
-          <div class="metric-value">5-10 min</div>
-          <div class="metric-label">Daily cadence</div>
-          <p class="metric-copy">Short enough to keep. Long enough to matter.</p>
-        </article>
-        <article class="metric card">
-          <div class="metric-value">Live web app</div>
-          <div class="metric-label">Browser ready</div>
-          <p class="metric-copy">Tap in instantly with the same production backend.</p>
-        </article>
-        <article class="metric card">
-          <div class="metric-value">Adaptive</div>
-          <div class="metric-label">Always recalibrating</div>
-          <p class="metric-copy">Difficulty shifts with your baseline and usage patterns.</p>
-        </article>
+      <section id="waitlist" class="section-card card">
+        <h2 class="section-title">Get Early Access</h2>
+        <p class="section-sub">Enter your email and we will add you to the Neuto waiting list.</p>
+        <form class="waitlist-form" id="waitlist-form">
+          <input
+            id="waitlist-email"
+            class="waitlist-input"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <button id="waitlist-submit" class="waitlist-button" type="submit">JOIN NOW</button>
+        </form>
+        <p id="waitlist-feedback" class="waitlist-feedback" role="status" aria-live="polite"></p>
+        <p class="waitlist-note">No spam. Invite-only beta updates.</p>
       </section>
 
-      <section class="feature card reveal">
-        <div class="feature-copy">
-          <p class="feature-kicker">HOW IT FEELS</p>
-          <h2 class="section-title">Quick rounds, clean choices, less friction.</h2>
-          <p class="section-sub">Neuto should feel more like a streak you keep than a program you have to negotiate with.</p>
-          <div class="tag-row" aria-label="Training categories">
-            <span class="mini-tag"><span class="mini-dot blue" aria-hidden="true"></span>Memory</span>
-            <span class="mini-tag"><span class="mini-dot green" aria-hidden="true"></span>Focus</span>
-            <span class="mini-tag"><span class="mini-dot orange" aria-hidden="true"></span>Reasoning</span>
-          </div>
-        </div>
-
-        <div class="lesson-stack" aria-label="Example training rounds">
-          <article class="lesson-card">
-            <div class="lesson-top">
-              <span class="lesson-title">Recall Sprint</span>
-              <span class="lesson-time">02:00</span>
-            </div>
-            <p class="lesson-copy">Catch patterns before they fade.</p>
-            <div class="progress-bar" aria-hidden="true">
-              <div class="progress-fill" style="width: 74%"></div>
-            </div>
+      <section class="section-card card reveal">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">Short loops, measurable baselines, and adaptation to your AI usage profile.</p>
+        <div class="how-grid">
+          <article class="how-item">
+            <span class="step-pill">1</span>
+            <h3>Play quick mini-games</h3>
+            <p>1-3 minute rounds train focus, working memory, recall, and decision speed without long sessions.</p>
           </article>
-          <article class="lesson-card">
-            <div class="lesson-top">
-              <span class="lesson-title">Focus Lock</span>
-              <span class="lesson-time">01:45</span>
-            </div>
-            <p class="lesson-copy">Filter noise and stay on task.</p>
-            <div class="progress-bar" aria-hidden="true">
-              <div class="progress-fill" style="width: 61%"></div>
-            </div>
+          <article class="how-item">
+            <span class="step-pill">2</span>
+            <h3>Enter the live web app</h3>
+            <p>The launch button drops you into the browser build that talks to the same backend used by the app.</p>
           </article>
-          <article class="lesson-card">
-            <div class="lesson-top">
-              <span class="lesson-title">Decision Drill</span>
-              <span class="lesson-time">02:20</span>
-            </div>
-            <p class="lesson-copy">Move fast without giving up accuracy.</p>
-            <div class="progress-bar" aria-hidden="true">
-              <div class="progress-fill" style="width: 82%"></div>
-            </div>
+          <article class="how-item">
+            <span class="step-pill">3</span>
+            <h3>Track cognitive safety</h3>
+            <p>E-Rival and the Neural Map show where AI overreliance is creeping in and where your conditioning is improving.</p>
           </article>
         </div>
       </section>
 
-      <section class="feature card reveal">
-        <div class="path-board" aria-hidden="true">
-          <div class="path-line"></div>
-          <div class="path-node">
-            <div class="path-badge green">01</div>
-            <div class="path-label">Warm up attention</div>
-          </div>
-          <div class="path-node">
-            <div class="path-badge blue">02</div>
-            <div class="path-label">Push working memory</div>
-          </div>
-          <div class="path-node">
-            <div class="path-badge orange">03</div>
-            <div class="path-label">Stress-test reasoning</div>
-          </div>
-          <div class="path-node">
-            <div class="path-badge green">04</div>
-            <div class="path-label">Track cognitive safety</div>
-          </div>
-        </div>
-
-        <div class="feature-copy">
-          <p class="feature-kicker">WHY IT STICKS</p>
-          <h2 class="section-title">A clearer path from warm-up to sharper thinking.</h2>
-          <p class="section-sub">You can see progress, feel the resistance, and spot where AI convenience is making you softer.</p>
-          <div class="line-list">
-            <div class="line-item"><span class="line-dot green" aria-hidden="true"></span>One session at a time, not a wall of content</div>
-            <div class="line-item"><span class="line-dot blue" aria-hidden="true"></span>Built around measurable baselines and recovery</div>
-            <div class="line-item"><span class="line-dot orange" aria-hidden="true"></span>E-Rival keeps the landing page and app tied together</div>
-          </div>
-        </div>
-      </section>
-
-      <section id="waitlist" class="cta card reveal">
-        <div>
-          <p class="feature-kicker">EARLY ACCESS</p>
-          <h2 class="section-title">Join the beta list.</h2>
-          <p class="section-sub">Drop your email once. We will send the invite when your spot opens.</p>
-          <p class="waitlist-note">No spam. Invite-only beta updates.</p>
-        </div>
-
-        <div>
-          <form class="waitlist-form" id="waitlist-form">
-            <input
-              id="waitlist-email"
-              class="waitlist-input"
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              autocomplete="email"
-              required
-            />
-            <button id="waitlist-submit" class="waitlist-button" type="submit">JOIN NOW</button>
-          </form>
-          <p id="waitlist-feedback" class="waitlist-feedback" role="status" aria-live="polite"></p>
-        </div>
-      </section>
-
-      <section class="faq-shell reveal">
-        <div class="faq-head">
-          <p class="feature-kicker">QUESTIONS</p>
-          <h2 class="section-title">Short answers.</h2>
-          <p class="section-sub">Everything important without the wall of copy.</p>
-        </div>
-
+      <section class="section-card card reveal">
+        <h2 class="section-title">FAQ</h2>
         <div class="faq-list">
           <details open>
-            <summary>What do I do in Neuto?</summary>
-            <p>You play short daily rounds that train memory, focus, language, math, and reasoning. Difficulty adjusts as you improve.</p>
+            <summary>What do I actually do in Neuto?</summary>
+            <p>You play short daily rounds that train memory, focus, language, math, and reasoning. The app keeps adjusting so it does not feel like the same drill every day.</p>
           </details>
           <details>
             <summary>How much time does it take?</summary>
             <p>Most people can get through a useful session in about 5 to 10 minutes a day.</p>
+          </details>
+          <details>
+            <summary>Do I need to be good at brain games already?</summary>
+            <p>No. Neuto starts from your baseline and gets harder as you improve.</p>
+          </details>
+          <details>
+            <summary>Is Neuto anti-AI?</summary>
+            <p>No. It is for people who use AI and do not want to feel mentally rusty without it.</p>
           </details>
           <details>
             <summary>How do I try it?</summary>
@@ -1371,14 +874,14 @@
         </div>
       </section>
 
-      <footer class="foot card reveal">
+      <div class="foot card reveal">
         <strong>Built to counter AI overreliance</strong>
         <div class="foot-meta">
           <span>Neuto + E-Rival are in final tuning.</span>
           <a class="foot-link" href="privacy-policy.html">Privacy Policy</a>
           <a class="foot-link" href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
-      </footer>
+      </div>
     </div>
   </div>
 
@@ -1391,7 +894,8 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll(".reveal").forEach((el) => {
+    document.querySelectorAll(".card, .how-item, .faq-list details").forEach((el) => {
+      el.classList.add("reveal");
       observer.observe(el);
     });
 
