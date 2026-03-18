@@ -1,18 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Neuto icon">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Neuto robot favicon">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#111827" />
+    <linearGradient id="bg" x1="18%" y1="18%" x2="82%" y2="82%">
+      <stop offset="0%" stop-color="#464646" />
+      <stop offset="100%" stop-color="#3b3b3b" />
     </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#10b981" />
-      <stop offset="100%" stop-color="#3b82f6" />
+    <radialGradient id="aura" cx="50%" cy="44%" r="34%">
+      <stop offset="0%" stop-color="#4fbfff" stop-opacity="0.52" />
+      <stop offset="65%" stop-color="#1e6fe5" stop-opacity="0.18" />
+      <stop offset="100%" stop-color="#1e6fe5" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="shell" x1="18%" y1="18%" x2="78%" y2="88%">
+      <stop offset="0%" stop-color="#76deff" />
+      <stop offset="45%" stop-color="#40b7ff" />
+      <stop offset="100%" stop-color="#167fe0" />
     </linearGradient>
+    <linearGradient id="ear" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#67d8ff" />
+      <stop offset="100%" stop-color="#2e9eff" />
+    </linearGradient>
+    <linearGradient id="orb" x1="22%" y1="20%" x2="82%" y2="88%">
+      <stop offset="0%" stop-color="#ddfbff" />
+      <stop offset="100%" stop-color="#55c8ff" />
+    </linearGradient>
+    <linearGradient id="visorGlow" x1="10%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#9eeaff" />
+      <stop offset="100%" stop-color="#51baff" />
+    </linearGradient>
+    <linearGradient id="eye" x1="20%" y1="10%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ff7e8f" />
+      <stop offset="100%" stop-color="#ff2d47" />
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" />
+    </filter>
+    <filter id="floorGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="10" />
+    </filter>
   </defs>
-  <rect width="128" height="128" rx="28" fill="url(#bg)" />
-  <circle cx="96" cy="30" r="8" fill="#67e8f9" opacity="0.9" />
+
+  <rect width="256" height="256" fill="url(#bg)" />
+  <ellipse cx="128" cy="124" rx="82" ry="82" fill="url(#aura)" filter="url(#softGlow)" />
+  <ellipse cx="128" cy="208" rx="42" ry="10" fill="#7ed0ff" opacity="0.75" filter="url(#floorGlow)" />
+
+  <circle cx="128" cy="54" r="18" fill="url(#orb)" stroke="#0f2556" stroke-width="3" />
+  <circle cx="123" cy="48" r="5" fill="#ffffff" opacity="0.85" />
+  <rect x="116" y="68" width="24" height="34" rx="10" fill="#1a5fa6" stroke="#0f2556" stroke-width="3" />
+
+  <rect x="54" y="88" width="148" height="86" rx="43" fill="url(#shell)" stroke="#0f2556" stroke-width="4" />
   <path
-    d="M34 95V33h13l32 39V33h15v62H81L49 56v39z"
-    fill="url(#accent)"
+    d="M66 115c4-24 26-40 54-40h33c22 0 42 12 49 30"
+    fill="none"
+    opacity="0.55"
+    stroke="#d6f7ff"
+    stroke-linecap="round"
+    stroke-width="9"
   />
+  <path
+    d="M70 150c14 20 38 31 58 31 28 0 52-12 67-33"
+    fill="none"
+    opacity="0.24"
+    stroke="#0f2556"
+    stroke-linecap="round"
+    stroke-width="10"
+  />
+
+  <rect x="36" y="116" width="26" height="46" rx="13" fill="url(#ear)" stroke="#0f2556" stroke-width="3" />
+  <rect x="194" y="116" width="26" height="46" rx="13" fill="url(#ear)" stroke="#0f2556" stroke-width="3" />
+
+  <rect x="70" y="102" width="116" height="52" rx="26" fill="#07111f" stroke="#d8f5ff" stroke-width="3" />
+  <rect x="74" y="106" width="108" height="44" rx="22" fill="#07111f" stroke="#173359" stroke-width="1.5" />
+  <ellipse cx="112" cy="128" rx="13" ry="18" fill="url(#eye)" />
+  <ellipse cx="144" cy="128" rx="13" ry="18" fill="url(#eye)" />
+  <ellipse cx="107" cy="121" rx="5" ry="7" fill="#fff4f6" opacity="0.92" />
+  <ellipse cx="139" cy="121" rx="5" ry="7" fill="#fff4f6" opacity="0.92" />
+  <ellipse cx="112" cy="128" rx="16" ry="21" fill="none" stroke="#8e1124" stroke-opacity="0.6" stroke-width="2.5" />
+  <ellipse cx="144" cy="128" rx="16" ry="21" fill="none" stroke="#8e1124" stroke-opacity="0.6" stroke-width="2.5" />
+
+  <rect x="88" y="168" width="80" height="44" rx="20" fill="url(#shell)" stroke="#0f2556" stroke-width="4" />
+  <rect x="103" y="178" width="50" height="24" rx="8" fill="#07111f" />
+  <circle cx="116" cy="190" r="6" fill="#b7f3ff" />
+  <rect x="125" y="184" width="20" height="12" rx="6" fill="url(#visorGlow)" />
 </svg>
