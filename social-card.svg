@@ -1,44 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Neuto social card">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#06111c" />
-      <stop offset="55%" stop-color="#09192b" />
+      <stop offset="0%" stop-color="#07131f" />
       <stop offset="100%" stop-color="#0c2237" />
     </linearGradient>
-    <radialGradient id="glowLeft" cx="18%" cy="18%" r="58%">
-      <stop offset="0%" stop-color="#26d6ff" stop-opacity="0.20" />
-      <stop offset="100%" stop-color="#26d6ff" stop-opacity="0" />
+    <radialGradient id="glowLeft" cx="14%" cy="16%" r="56%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
     </radialGradient>
-    <radialGradient id="glowRight" cx="82%" cy="30%" r="48%">
-      <stop offset="0%" stop-color="#2086ff" stop-opacity="0.28" />
-      <stop offset="100%" stop-color="#2086ff" stop-opacity="0" />
+    <radialGradient id="glowRight" cx="84%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.24" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
     </radialGradient>
     <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1725" stop-opacity="0.94" />
-      <stop offset="100%" stop-color="#0d1f31" stop-opacity="0.88" />
+      <stop offset="0%" stop-color="#0b1827" stop-opacity="0.96" />
+      <stop offset="100%" stop-color="#102236" stop-opacity="0.90" />
     </linearGradient>
-    <linearGradient id="shell" x1="18%" y1="18%" x2="80%" y2="88%">
-      <stop offset="0%" stop-color="#79dfff" />
-      <stop offset="50%" stop-color="#46b9ff" />
-      <stop offset="100%" stop-color="#177fe0" />
-    </linearGradient>
-    <linearGradient id="orb" x1="22%" y1="18%" x2="82%" y2="88%">
-      <stop offset="0%" stop-color="#e2fbff" />
-      <stop offset="100%" stop-color="#56c9ff" />
-    </linearGradient>
-    <linearGradient id="eye" x1="20%" y1="10%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#ff8796" />
-      <stop offset="100%" stop-color="#ff334b" />
-    </linearGradient>
-    <linearGradient id="chip" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#69d7ff" stop-opacity="0.16" />
-      <stop offset="100%" stop-color="#2e86ff" stop-opacity="0.12" />
-    </linearGradient>
-    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="32" />
-    </filter>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#02060c" flood-opacity="0.38" />
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#02060c" flood-opacity="0.35" />
+    </filter>
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="24" />
     </filter>
   </defs>
 
@@ -46,70 +28,45 @@
   <rect width="1200" height="630" fill="url(#glowLeft)" />
   <rect width="1200" height="630" fill="url(#glowRight)" />
 
-  <rect x="44" y="44" width="1112" height="542" rx="40" fill="url(#panel)" stroke="#8eb8e8" stroke-opacity="0.14" filter="url(#shadow)" />
-  <path d="M82 132H556" fill="none" stroke="#a7d6ff" stroke-opacity="0.12" stroke-width="1.5" />
-  <path d="M82 506H360" fill="none" stroke="#a7d6ff" stroke-opacity="0.10" stroke-width="1.5" />
+  <rect x="48" y="48" width="1104" height="534" rx="42" fill="url(#panel)" stroke="#97c8f8" stroke-opacity="0.10" filter="url(#shadow)" />
 
-  <rect x="92" y="88" width="156" height="48" rx="24" fill="url(#chip)" stroke="#7fd3ff" stroke-opacity="0.22" />
-  <text x="122" y="120" fill="#d8f6ff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="23" font-weight="700" letter-spacing="4">NEUTO</text>
+  <text x="98" y="128" fill="#d8f6ff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="28" font-weight="700" letter-spacing="5">NEUTO</text>
+  <text x="98" y="284" fill="#f8fbff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="116" font-weight="800">Stay sharp.</text>
+  <text x="100" y="396" fill="#a8c7ea" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="34" font-weight="500">Daily brain training for focus,</text>
+  <text x="100" y="442" fill="#a8c7ea" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="34" font-weight="500">memory, and reasoning.</text>
+  <text x="100" y="534" fill="#76b9ff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="28" font-weight="600">neuto.app</text>
 
-  <text x="92" y="266" fill="#f8fbff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="108" font-weight="800">Stay sharp.</text>
+  <circle cx="922" cy="314" r="156" fill="#173257" fill-opacity="0.82" stroke="#7cb7f5" stroke-opacity="0.10" />
+  <circle cx="922" cy="314" r="110" fill="#5bc6ff" fill-opacity="0.08" />
+  <ellipse cx="922" cy="356" rx="112" ry="112" fill="#4aaeff" fill-opacity="0.16" filter="url(#softBlur)" />
 
-  <text x="94" y="392" fill="#a4c7ee" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="31" font-weight="500">Daily brain training for</text>
-  <text x="94" y="434" fill="#a4c7ee" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="31" font-weight="500">focus, memory, and reasoning.</text>
+  <g transform="translate(762 124) scale(1.42)">
+    <ellipse cx="110" cy="199" rx="66" ry="13" fill="#7ed0ff" opacity="0.26" filter="url(#softBlur)" />
 
-  <rect x="94" y="496" width="214" height="52" rx="26" fill="url(#chip)" stroke="#7fd3ff" stroke-opacity="0.20" />
-  <text x="126" y="530" fill="#dff6ff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="25" font-weight="600">5-10 min daily</text>
-  <text x="94" y="574" fill="#78b8ff" font-family="Outfit, SF Pro Display, Segoe UI, sans-serif" font-size="24" font-weight="600">neuto.app</text>
+    <circle cx="110" cy="20" r="12" fill="#66E2FF" opacity="0.62" />
+    <circle cx="110" cy="20" r="6" fill="#66E2FF" />
+    <path d="M104 24 L106 48 Q110 52 114 48 L116 24 Z" fill="#1B2B32" />
 
-  <circle cx="910" cy="308" r="174" fill="#122844" fill-opacity="0.82" stroke="#7bbcfb" stroke-opacity="0.14" />
-  <circle cx="910" cy="308" r="124" fill="#6ecfff" fill-opacity="0.10" />
-  <ellipse cx="910" cy="356" rx="116" ry="116" fill="#50b8ff" fill-opacity="0.20" filter="url(#softBlur)" />
+    <rect x="36" y="62" width="148" height="110" rx="58" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="5" />
+    <rect x="56" y="82" width="108" height="62" rx="29" fill="#1B2B32" />
+    <rect x="62" y="87" width="96" height="52" rx="24" fill="#0A1216" />
+    <rect x="60" y="85" width="100" height="56" rx="27" fill="none" stroke="#BDEFFF" stroke-opacity="0.82" stroke-width="3" />
+    <ellipse cx="145" cy="96" rx="18" ry="7" fill="#FFFFFF" opacity="0.34" />
+    <ellipse cx="154" cy="96" rx="11" ry="5" fill="#FFFFFF" opacity="0.22" />
 
-  <g transform="translate(746 132) scale(1.28)">
-    <ellipse cx="128" cy="208" rx="42" ry="10" fill="#7ed0ff" opacity="0.75" filter="url(#softBlur)" />
+    <ellipse cx="94" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24" />
+    <ellipse cx="126" cy="113" rx="14" ry="19" fill="#FF4E59" opacity="0.24" />
+    <ellipse cx="94" cy="113" rx="11" ry="16" fill="#FF313A" />
+    <ellipse cx="126" cy="113" rx="11" ry="16" fill="#FF313A" />
+    <ellipse cx="90" cy="107" rx="5" ry="6" fill="#FFD1D4" />
+    <ellipse cx="122" cy="107" rx="5" ry="6" fill="#FFD1D4" />
 
-    <circle cx="128" cy="54" r="18" fill="url(#orb)" stroke="#0f2556" stroke-width="3" />
-    <circle cx="123" cy="48" r="5" fill="#ffffff" opacity="0.85" />
-    <rect x="116" y="68" width="24" height="34" rx="10" fill="#1a5fa6" stroke="#0f2556" stroke-width="3" />
+    <rect x="22" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4" />
+    <rect x="177" y="95" width="21" height="50" rx="10" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4" />
 
-    <rect x="54" y="88" width="148" height="86" rx="43" fill="url(#shell)" stroke="#0f2556" stroke-width="4" />
-    <path
-      d="M66 115c4-24 26-40 54-40h33c22 0 42 12 49 30"
-      fill="none"
-      opacity="0.55"
-      stroke="#d6f7ff"
-      stroke-linecap="round"
-      stroke-width="9"
-    />
-    <path
-      d="M70 150c14 20 38 31 58 31 28 0 52-12 67-33"
-      fill="none"
-      opacity="0.24"
-      stroke="#0f2556"
-      stroke-linecap="round"
-      stroke-width="10"
-    />
-
-    <rect x="36" y="116" width="26" height="46" rx="13" fill="url(#shell)" stroke="#0f2556" stroke-width="3" />
-    <rect x="194" y="116" width="26" height="46" rx="13" fill="url(#shell)" stroke="#0f2556" stroke-width="3" />
-
-    <rect x="70" y="102" width="116" height="52" rx="26" fill="#07111f" stroke="#d8f5ff" stroke-width="3" />
-    <rect x="74" y="106" width="108" height="44" rx="22" fill="#07111f" stroke="#173359" stroke-width="1.5" />
-    <ellipse cx="112" cy="128" rx="13" ry="18" fill="url(#eye)" />
-    <ellipse cx="144" cy="128" rx="13" ry="18" fill="url(#eye)" />
-    <ellipse cx="107" cy="121" rx="5" ry="7" fill="#fff4f6" opacity="0.92" />
-    <ellipse cx="139" cy="121" rx="5" ry="7" fill="#fff4f6" opacity="0.92" />
-    <ellipse cx="112" cy="128" rx="16" ry="21" fill="none" stroke="#8e1124" stroke-opacity="0.6" stroke-width="2.5" />
-    <ellipse cx="144" cy="128" rx="16" ry="21" fill="none" stroke="#8e1124" stroke-opacity="0.6" stroke-width="2.5" />
-
-    <rect x="88" y="168" width="80" height="44" rx="20" fill="url(#shell)" stroke="#0f2556" stroke-width="4" />
-    <rect x="103" y="178" width="50" height="24" rx="8" fill="#07111f" />
-    <circle cx="116" cy="190" r="6" fill="#b7f3ff" />
-    <rect x="125" y="184" width="20" height="12" rx="6" fill="#8be4ff" />
+    <rect x="62" y="155" width="96" height="36" rx="16" fill="#1CB0F6" stroke="#0D6FAA" stroke-width="4" />
+    <rect x="84" y="163" width="52" height="21" rx="7" fill="#131F24" />
+    <circle cx="98" cy="173" r="5" fill="#66E2FF" />
+    <rect x="107" y="168" width="16" height="10" rx="3" fill="#A7F0FF" />
   </g>
-
-  <circle cx="1080" cy="110" r="18" fill="#73ddff" fill-opacity="0.70" />
-  <circle cx="1114" cy="152" r="7" fill="#2d8cff" fill-opacity="0.9" />
-  <circle cx="1054" cy="520" r="10" fill="#73ddff" fill-opacity="0.38" />
 </svg>
