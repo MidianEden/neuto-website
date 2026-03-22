@@ -381,6 +381,22 @@
       color: #88a0b4;
     }
 
+    .waitlist-extra {
+      margin: 12px 0 0;
+      font-size: 13px;
+      color: #b7d4e7;
+    }
+
+    .waitlist-extra a {
+      color: #7dc7ff;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .waitlist-extra a:hover {
+      text-decoration: underline;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -429,6 +445,13 @@
       border: 1px solid var(--blue);
       color: #ffffff;
       box-shadow: 0 0 15px var(--blue-glow);
+    }
+
+    .btn.app-store {
+      background: linear-gradient(135deg, #111827, #0f172a);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
     }
 
     .tags {
@@ -749,6 +772,7 @@
           </p>
           <div class="actions">
             <a class="btn primary" href="/app/">OPEN WEB APP</a>
+            <a class="btn app-store" href="https://apps.apple.com/us/app/neuto-brain-training/id6760794030" target="_blank" rel="noopener noreferrer">DOWNLOAD ON IOS</a>
             <a class="btn secondary" href="https://github.com/MidianEden/neuto-website" target="_blank" rel="noopener noreferrer">VIEW PROJECT</a>
           </div>
           <div class="tags">
@@ -817,6 +841,9 @@
         </form>
         <p id="waitlist-feedback" class="waitlist-feedback" role="status" aria-live="polite"></p>
         <p class="waitlist-note">No spam. Invite-only beta updates.</p>
+        <p class="waitlist-extra">
+          On iPhone already? <a href="https://apps.apple.com/us/app/neuto-brain-training/id6760794030" target="_blank" rel="noopener noreferrer">Download Neuto on the App Store.</a>
+        </p>
       </section>
 
       <section class="section-card card">
